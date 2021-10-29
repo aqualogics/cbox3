@@ -27,7 +27,7 @@ This can be downloaded bundled with CommandBox if needed
 ## **Optional** [GitUI]()
 
 
-## [CommandBox CLI](https://www.ortussolutions.com/products/commandbox#download) (Version 4.\*)
+## [CommandBox CLI](https://www.ortussolutions.com/products/commandbox#download)
 
 On a Mac, Commandbox installation is done using Homebrew. However, if you do not have the required Java JDK already installed, homebrew will prompt you to install it first, prior to the actual commandbox installation.
 
