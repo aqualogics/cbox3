@@ -13,7 +13,7 @@ You can install a CFML syntax plug-in within the IDE.
 * https://www.sublimetext.com/download
 
 
-## [Java](https://www.java.com/en/) (Version 8)
+## [Java](https://www.java.com/en/)
 
 This can be downloaded bundled with CommandBox if needed
 * https://www.java.com/en/
