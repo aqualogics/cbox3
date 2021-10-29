@@ -153,7 +153,7 @@ Here is an example for CurrencyAPI.cfc:
 ```
 * Returns a list of currencies
 * @x-route (GET) /api/currency
-* @response-default ~currency/index/responses.json##200
+* @response-200 ~currency/index/responses.json##200
 
 function index( event, rc, prc ) cache=true cacheTimeout=60 {
     // the handler's index action code goes here
