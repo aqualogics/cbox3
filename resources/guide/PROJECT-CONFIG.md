@@ -2,8 +2,8 @@
 
 ## A - Installation
 
-We are starting with a clean GitLab repository that only contains a README.md file.
-We are now going to configure our project. It includes a `cbox3` folder where a Coldbox REST API template will be installed.
+We are starting with a clean GitLab repository that only contains a README.md file and a resources/guide folder that contains our documentation. We are now going to configure our project. 
+It includes a `cbox3` folder where a Coldbox REST API template will be installed.
 
 ### A1 - Pre-requisites
 
@@ -13,9 +13,8 @@ We are now going to configure our project. It includes a `cbox3` folder where a 
     - MySQL must have an empty database called `merapi` that you can connect to with a MySQL client
 
 ```
-Read the PRE-REQUISITES.md document coming with this repository and proceed with all the necessary 
-configuration steps for your environment first. When all pre-requisites are satisfied, 
-proceed with the installation instructions.
+It is assumed that all pre-requisites are satisfied by now in order to proceed with the project 
+configuration.
 
 ```
 

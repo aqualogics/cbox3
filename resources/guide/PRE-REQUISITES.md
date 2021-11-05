@@ -85,16 +85,16 @@ On Mac, we recommend Sequel Pro, since phpMyAdmin requires PHP and that since Bi
 You need privileges such as CREATE,ALTER,DROP to install a database. In doubt, login to MySQL as “root” in order to avoid problems during the installation.
 
 ```sh
-Create a new database called `merapi` with collation `utf8_general_ci`.
+Create a new database instance called `cbox3` with collation `utf8_general_ci`.
 ```
 
 ### Create a MySQL user with limited privileges to access your database
 
-You need a least privileged user to access MySQL from your application. This user can then be used to access your database programmatically. **Remember the credentials of that user** as you are going to need them later, during the course, when configuring the CFML engine connection to your `merapi` database.
+You need a least privileged user to access MySQL from your application. This user can then be used to access your database programmatically. **Remember the credentials of that user** as you are going to need them later, during the course, when configuring the CFML engine connection to your `cbox3` database.
 
 ```sh
 - Assign credentials to that user (e.g: webuser/webpass)
-- Deny at least: ALTER, GRANT and DROP privileges from this user
+- Allow only: SELECT, INSERT, UPDATE and DELETE privileges to webuser
 ```
 
 ## Useful Resources
