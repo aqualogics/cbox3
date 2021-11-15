@@ -76,9 +76,8 @@ modules here: https://github.com/coldbox-modules
 Within the CommandBox shell, install the following modules:
 
 ```
-install cbsecurity@2.13 //  Module upgrade to leverage Refresh JWT tokens
 install BCrypt // Coldbox encryption module
-install cbswagger --savedev
+install cbswagger --savedev // To leverage Swagger now known as OpenAPI
 install cfmigrations // See (1) for additional setup
 
 ```
