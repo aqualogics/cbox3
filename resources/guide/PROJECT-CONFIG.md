@@ -7,15 +7,14 @@ Intermediate code will be added for each section of our tutorial as a `cbox3.zip
 
 ## A - Installation
 
-We are starting with a clean GitLab repository that only contains a README.md file and a resources/guide folder that contains our documentation. We are now going to configure our project. 
-It includes a `cbox3` folder where a Coldbox REST API template will be installed.
+We are starting with a clean repository that only contains a README.md file and a resources/guide folder that contains our documentation. We are now going to configure our project in a `cbox3` folder where a Coldbox REST API template will be installed.
 
 ### A1 - Pre-requisites
 
 [cbox3]
 
     - CommandBox shell must be available (type the `box` command to check its availability)
-    - MySQL must have an empty database called `cbox3` that you can connect to with a MySQL client
+    - MySQL must have an empty instance called `cbox3` that you can connect to with a MySQL client
 
 ```
 It is assumed that all pre-requisites are satisfied by now in order to proceed with the project 
@@ -49,7 +48,7 @@ To stop the server, run the command: `stop`
 
 ### A3 - The `Merapi` project structure
 
-The Merapi project should now be structured as follows:
+The Merapi project should now be structured as follows in a cbox3 root folder:
 
 ```
 
@@ -193,7 +192,7 @@ Now update server.json with what follows:
         "http":{
             "port":52019
         },
-        "name":"merapi"
+        "name":"cbox3"
     }    
 }
 
