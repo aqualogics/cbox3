@@ -1,7 +1,14 @@
 {
+    "app":{
+        "cfengine":"lucee@5.3.8+206"
+    },
     "web":{
         "rewrites":{
             "enable":true
-        }
+        },
+        "http":{
+            "port":50693
+        },
+        "name":"cbox3"
     }
 }

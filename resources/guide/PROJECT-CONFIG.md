@@ -189,7 +189,7 @@ Now update server.json with what follows:
             "enable":true
         },
         "http":{
-            "port":52019
+            "port":50693
         },
         "name":"cbox3"
     }    
@@ -223,14 +223,21 @@ A few seconds after starting the server, you should see a little Lucee icon on y
 ```
 
 You will be required to set a password the first time you try to access the Lucee server admin.
-Verify that you have `commandbox-cfconfig` installed by running the `list` command at the commandbox prompt. You should have this module available if you performed the template installation steps described in paragraph A3.
-
-Otherwise, if you can't find it, proceed with the module installation: `install commandbox-cfconfig`.
-
 Let's set a password for the Lucee administrator: `cfconfig set adminPassword=cbox3`
 Now, you should have a confirmation that the password was set.
 
+If you see an error attempting to run the above command:
+
+- Verify that you have `commandbox-cfconfig` installed by running the `list` command at the commandbox prompt.
+- Otherwise, if you can't find it, proceed with the module installation: `install commandbox-cfconfig`.
+
 Re-start the server for the changes to take effect.
+
+```
+NB: if you are prompted to patch/upgrade the Lucee server and you proceed with this update, do not forget to update server.json as well e.g from "cfengine":"lucee@5.3.8+201" to "cfengine":"lucee@5.3.8+206". 
+When you re-start the server, commandbox will apply the changes. As a result, you'll get again the message: "Password not set" when you attempt to login to the server administration. If this happens, simply repeat the steps above that sets the Lucee administrator password and, guess what: reboot the server yet again ;)
+
+```
 
 #### B5.4 - Verify Datasource / MySQL connection
 
