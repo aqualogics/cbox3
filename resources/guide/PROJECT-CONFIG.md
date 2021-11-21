@@ -181,7 +181,7 @@ Make a backup of the server.json file before modifying it and stop the server wi
 ```sh
 {
     "app":{
-        "cfengine": "server-version"
+        "cfengine": "lucee@5.3.8+201"
     },
 
     "web":{
