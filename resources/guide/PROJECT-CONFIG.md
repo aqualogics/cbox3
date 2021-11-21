@@ -166,22 +166,22 @@ S3_DOMAIN=amazonaws.com
 Your MySQL database **should have already been installed** and your MySQL client should connect 
 successfully to a `cbox3` instance.
 
-Depending on the last command we ran in paragraph A-2, we may already have our Coldbox server running. Verify this by typing the command `server list` at the commandbox prompt. Take note of the CF engine version and the port number automatically assigned upon server launch.
+Depending on the last command we ran in paragraph A-2, we may already have our Coldbox server running. Verify this by typing the command `server list` at the commandbox prompt. Take note of the CF engine version and the port number automatically assigned to your server on the first launch. The parameters to note are:
 
-- `<server-version`: something like `lucee@5.3.8+201`, which refers to the current stable version of the Lucee engine
-- `<Portnumber>`: somehing like `52019` which depends on your own installation 
+- `server-version`: something like `lucee@5.3.8+201`, which refers to the current stable version of Lucee engine
+- `port-number`: something like `52016` which depends on your own installation
+- `name`: the server name you want to persist across the start/stop processes(cbox3 is defaulted from .env above).
 
-We now need to pin our server engine version, otherwise commandbox will always upgrade with the latest stable version available on ForgeBox, the next time you start your server. This may not be what we want. We are therefore going to pin the CFML server version to the value of `<server-version>`.
+We now need to pin our server engine version, otherwise commandbox will always upgrade with the latest stable version available on ForgeBox, the next time you start your server. This may not be what we want. We are therefore going to pin the CFML server version to the value of `server-version`.
 
 #### B5.1 Edit server.json to pin your server to a port, an engine and a version
 
-Make a backup of the server.json file before modifying it and stop the server with the command `stop` if it is running.
-Now update server.json with what follows:
+Make a backup of the server.json file before modifying it and stop the server with the command `stop` if it is running. Now update server.json with what follows:
 
 ```sh
 {
     "app":{
-        "cfengine": "lucee@5.3.8+201"
+        "cfengine": "server-version"
     },
 
     "web":{
@@ -189,7 +189,7 @@ Now update server.json with what follows:
             "enable":true
         },
         "http":{
-            "port":50693
+            "port":port-number
         },
         "name":"cbox3"
     }    
