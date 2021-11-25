@@ -250,11 +250,57 @@ If the test fails, delete and re-create a new datasource with the name `cbox3` a
 
 If you choose a name other than "cbox3" for the datasource, remember to update Application.cfc accordingly (as per paragraph B-3). Stop and re-start your server for the changes to take effect. 
 
-### B6 - Database schema migrations
+### B6 - Review the installation
+
+Go to the `cbox3` folder and have a look at its content. It should now include:
+
+```sh
+
+coldbox                         // Coldbox framework installation
+config                          // application config directory
+handlers                        // Default handlers installed with the REST template
+models                          // Basic user model installed with the REST template
+modules_app                     // An empty folder
+resources/apidocs               // Default API docs installed with the REST template
+resources/database/migrations   // The cfmigrations components folder
+resources/guide                 // The project documentation
+testbox                         // The TESTBOX module
+tests                           // The application tests directory
+.cfconfig.json
+.cfformat.json
+.cflintrc
+.editorconfig
+.env                            // The dot environment file (see paragraph B-4))   
+.gitignore                      // Git version control and file tracking
+.gitattributes  
+Application.cfc                 // The Application.cfc file (see paragraph B-3)
+box.json                        // Coldbox modules dependencies		
+index.cfm
+README.md
+robots.txt
+server.json                     // CFML server engine startup configuration
+
+```
+
+#### B6.1 - Run TESTBOX sample tests
+
+Open `http://localhost:<yourportnumber>/tests` in your browser
+
+The Colbox API REST template installation comes with integration and unit tests in the `tests/specs` folder:
+
+> integration/AuthTests.cfc
+> integration/EchoTests.cfc
+> unit/UserServiceTest.cfc
+> unit/Usertest.cfc
+
+The above tests must pass when you run them.
+
+
+### B7 - Build the database schema
 
 Here we are going to use Schema builder migrations to manage our database schema. This feature is not provided by default with the installation of the Coldbox API template. While we already installed the `cfmigrations` module in paragraph B-1 above, some further configuration is needed to make it work.
 
-#### B6.1 - Configure database access
+#### B7.1 - Create a user to run our queries
 
 >In the cbox3 database instance, create a user called `webuser` with schema privileges limited to INSERT,
 >SELECT, UPDATE and DELETE.
@@ -273,11 +319,11 @@ settings = {
 };
 ```
 
-Thanks to those settings now added in Coldbox.cfc, it is now possible to have any of our components connected to our database instance called `cbox3` with the inclusion of a simple dependency injection:
+Thanks to those settings added to Coldbox.cfc, it is now possible to have any of our components connected to our database instance called `cbox3` and have all queries run by `webuser` with the inclusion of a simple dependency injection:
 
 > property name="dsn" inject="coldbox:setting:cbox3";
 
-#### B6.2 - Initiate the schema migration
+#### B7.2 - Configure schema migrations
 
 Database migrations provide version control for your application's database. Changes to database schema are kept in timestamped files that are run `up` and `down`. In the `up` function, you describe the changes to apply (commit) your migration. In the `down` function, you describe the changes to undo (rollback) your migration.
 
@@ -305,6 +351,8 @@ Check whether `box.json` includes a "cfmigrations" structure like this:
 
 If it does not, run `migrate init` to create this structure.
 
+#### B7.3 - Initiate schema migrations
+
 In order to track which migrations have been run, `cfmigrations` needs to install a table in your database called `cfmigrations`. At the commandbox prompt run the following command: `migrate install`.
 
 For this to work, you need a line with `DB_SCHEMA=cbox3` in your dot env file, otherwise you may get a misleading message such as "cfmigrations table is already installed" while, in fact, it isn't.
@@ -314,7 +362,7 @@ You may also have a look at the README.md file found in modules/cfmigrations.
 
 Connect to your database instance and verify that a `cfmigrations` table was created.
 
-#### B6.3 - Build schema migrations
+#### B7.4 - Build schema migrations
 
 Our schema will be created with cfmigrations CFML components. Here are the few available commands that can be run from the commandbox prompt in order to manage our application's schema.
 
@@ -328,7 +376,7 @@ Our schema will be created with cfmigrations CFML components. Here are the few a
 > - migrate fresh // Runs migrate reset, migrate install, and migrate up to get a fresh copy of your migrated database.
 > - migrate uninstall // Removes the cfmigrations table after running down any run migrations. 
 
-##### B6.3.1 - Create empty migration files
+##### B7.4.1 - Create empty migration files
 
 You should refer to the ERD diagram provided with the documentation to understand how those tables are structured. We are going to create four tables in a specific order, starting with parent tables followed by child tables:
 
@@ -344,7 +392,7 @@ Let's create empty migration files with the following commands at the commandbox
 > - migrate create create_tab_city
 > - migrate create create_tab_airport
 
-##### B6.3.2 - Migrate the tab_currency with seed data
+##### B7.4.2 - Migrate the tab_currency with seed data
 
 Order matters when running migrations. A sequence is implemented with a timestamp that is part of the migration file name that was generated when we created the empty migration files above. 
 
@@ -410,7 +458,7 @@ Save the migration file. At the commandbox prompt, run the command: `migrate up`
 
 This will add a new table called "tab_currency" in the database, populated with the seed data. This step by step approach, one migration component at a time, is recommended while building the schema.
 
-##### B6.3.3 - Migrate the tab_country with seed data
+##### B7.4.3 - Migrate the tab_country with seed data
 
 Following our first migration's success, let's revert back to the original state of the database schema with no tables left other than the `cfmigrations` table. For this, run the `migrate down` command.
 
@@ -498,7 +546,7 @@ Save the migration file. At the commandbox prompt, run the command: `migrate up`
 This will now add a new table called "tab_country" in the database, populated with seed data.
 
 
-##### B6.3.4 - Migrate the tab_city with seed data
+##### B7.4.4 - Migrate the tab_city with seed data
 
 Following the last migration's success, let's revert back to the original state of the database schema once again, with no tables left other than the `cfmigrations` table. For this, run the `migrate down` command.
 
@@ -589,7 +637,7 @@ Save the migration file. At the commandbox prompt, run the command: `migrate up`
 
 This will now add a new table called "tab_city" in the database, populated with seed data.
 
-##### B6.3.5 - Migrate the tab_airport with seed data
+##### B7.4.5 - Migrate the tab_airport with seed data
 
 As usual, let's run the `migrate down` command to re-start with a fresh schema. 
 
@@ -684,7 +732,7 @@ Save the migration file. At the commandbox prompt, run the command: `migrate up`
 
 This will add a new table called "tab_airport" in the database. We have now created all our tables. Let's implement the referential integrity constraints associated with the foreign key relationships.
 
-##### B6.3.6 - Migrate the foreign key relationship constraints
+##### B7.4.6 - Migrate the foreign key relationship constraints
 
 Now, let's run the `migrate down` command to get back to a fresh initial schema, once again, as the recommended incremental approach.
 
@@ -734,48 +782,3 @@ Create a new migration component called "create_fk_constraints" with the followi
 Save the migration file. At the commandbox prompt, run the command: `migrate up`
 
 This will add all required foreign key constraints on "tab_country", "tab_city" and "tab_airport" in the database and complete the schema. 
-
-### B7 - Review the installation
-
-Go to the `cbox3` folder and have a look at its content. It should now include:
-
-```sh
-
-coldbox                         // Coldbox framework installation
-config                          // application config directory
-handlers                        // Default handlers installed with the REST template
-models                          // Basic user model installed with the REST template
-modules_app                     // An empty folder
-resources/apidocs               // Default API docs installed with the REST template
-resources/database/migrations   // The cfmigrations components folder
-resources/guide                 // The project documentation
-testbox                         // The TESTBOX module
-tests                           // The application tests directory
-.cfconfig.json
-.cfformat.json
-.cflintrc
-.editorconfig
-.env                            // The dot environment file (see paragraph B-4))   
-.gitignore                      // Git version control and file tracking
-.gitattributes  
-Application.cfc                 // The Application.cfc file (see paragraph B-3)
-box.json                        // Coldbox modules dependencies		
-index.cfm
-README.md
-robots.txt
-server.json                     // CFML server engine startup configuration
-
-```
-
-#### B7.1 - Run TESTBOX sample tests
-
-Open `http://localhost:<yourportnumber>/tests` in your browser
-
-The Colbox API REST template installation comes with integration and unit tests in the `tests/specs` folder:
-
-> integration/AuthTests.cfc
-> integration/EchoTests.cfc
-> unit/UserServiceTest.cfc
-> unit/Usertest.cfc
-
-The above tests must pass when you run them.
