@@ -256,8 +256,8 @@ Here we are going to use Schema builder migrations to manage our database schema
 
 #### B6.1 - Configure database access
 
->In the cbox3 database instance, create a user webuser identified by "anyPassword" with schema privileges
->limited to INSERT, SELECT, UPDATE and DELETE.
+>In the cbox3 database instance, create a user called `webuser` with schema privileges limited to INSERT,
+>SELECT, UPDATE and DELETE.
 
 Update `config/Coldbox.cfc` by adding the following under custom settings:
 
