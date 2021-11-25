@@ -12,29 +12,6 @@ The purpose of this document is to guide through the steps of our API developmen
 
 Our approach assumes the existence of a legacy schema definition. It means that our tables' column naming convention differs from our entity object properties' naming convention and that, because of this, object property names are going to be mapped to tables' column names. Although a departure from Coldbox common practices, this approach will demonstrate Coldbox's flexibility in adapting to non-trivial modelling requirements. 
 
-### Configure database access
-
->In the merapi database, create a user webuser identified by "yourPassword" with schema privileges
->limited to INSERT, SELECT, UPDATE and DELETE.
-
-Update `config/Coldbox.cfc` by adding the following under custom settings:
-
-// Custom settings
-
-```
-settings = {
-    merapi = {
-        type = "mysql",
-        username = "webuser",
-        name = "merapi"	
-    }
-};
-```
-
-Thanks to those settings now added in Coldbox.cfc, it is now possible to have any of our components connected to our database instance called `merapi` with the inclusion of a simple dependency injection:
-
-> property name="dsn" inject="coldbox:setting:merapi";
-
 ### XML schema
 
 In order to connect our components to our database schema, we have mapped our component properties to a table definition in a `models/xml/schema.xml` file. This mapping associates the column names of a table, defined as an entity, to their corresponding entity object property names.
