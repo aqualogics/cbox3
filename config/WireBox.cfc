@@ -32,5 +32,6 @@
 		};
 
 		// Map Bindings below
+		map("LoadXMLschema").to("models.xml.LoadXMLschema");
 	}
 }

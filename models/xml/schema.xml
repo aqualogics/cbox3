@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema>
+  <model id="1" name="references" >
+	<entity id="1" name="tab_currency" >
+  		<propertyName id="1" pkey="1" name="CurrencyCD" type="string" >
+  			<propertyValue name="cur_currency_cd" />
+  			<properties maxlength="3" required="true"/>
+  		</propertyName>
+  		<propertyName id="2" pkey="" name="CurrencyName" type="string" >
+  			<propertyValue name="cur_currency_nm" />
+  			<properties maxlength="50" required="true"/>
+  		</propertyName>
+  	</entity>
+  	<entity id="2" name="tab_city" >
+  		<propertyName id="1" pkey="1" name="CityID" type="numeric" >
+  			<propertyValue name="cty_city_id" />
+  			<properties maxlength="11" required="true"/>
+  		</propertyName>
+  		<propertyName id="2" pkey="" name="CityName" type="string" >
+  			<propertyValue name="cty_city_nm" />
+  			<properties maxlength="50" required="true"/>
+  		</propertyName>
+		<propertyName id="3" pkey="" name="CityCD" type="string" >
+  			<propertyValue name="cty_city_cd" />
+  			<properties maxlength="3"/>
+  		</propertyName>  
+  		<propertyName id="4" pkey="" name="CityCountryCD" type="string" >
+  			<propertyValue name="cty_country_cd" />
+  			<properties maxlength="2" required="true"/>
+  		</propertyName>
+  	</entity>
+  	<entity id="3" name="tab_country" >
+  		<propertyName id="1" pkey="1" name="CountryCD" type="string" >
+  			<propertyValue name="cnt_country_cd" />
+  			<properties maxlength="2" required="true"/>
+  		</propertyName>
+  		<propertyName id="2" pkey="" name="CountryName" type="string" >
+  			<propertyValue name="cnt_country_nm" />
+  			<properties maxlength="50" required="true"/>
+  		</propertyName>
+  		<propertyName id="3" pkey="" name="CountryCurrencyCD" type="string" >
+  			<propertyValue name="cnt_currency_cd" />
+  			<properties maxlength="3" required="true"/>
+  		</propertyName>
+  	</entity>
+  	<entity id="4" name="tab_airport" >
+  		<propertyName id="1" pkey="1" name="AirportCD" type="string" >
+  			<propertyValue name="gtw_airport_cd" />
+  			<properties maxlength="3" required="true"/>
+  		</propertyName>
+		<propertyName id="2" pkey="" name="AirportName" type="string" >
+  			<propertyValue name="gtw_airport_nm" />
+  			<properties maxlength="50" required="true"/>
+  		</propertyName>	
+  		<propertyName id="3" pkey="" name="AirportCityID" type="numeric" >
+  			<propertyValue name="gtw_city_id" />
+  			<properties maxlength="11" required="true"/>
+  		</propertyName>	
+  	</entity>
+  </model>
+</schema>
