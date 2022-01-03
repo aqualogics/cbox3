@@ -1,0 +1,35 @@
+{
+    "description": "Fields required to update an airport",
+    "required": true,
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "required": [
+                    "airportCD",
+                    "airportName",
+                    "airportCityID"
+                ],
+                "properties": {
+                    "airportCD": {
+                        "description": "The standard IATA code of the airport.",
+                        "type": "string"
+                    },
+                    "airportName": {
+                        "description": "The name of the airport",
+                        "type": "string"
+                    },
+                    "airportCityID": {
+                        "description": "The ID of the city associated to the airport",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "airportCD": "AAA",
+                    "airportName": "TEST23",
+                    "airportCityID": 2
+                }
+            }
+        }
+    }
+}

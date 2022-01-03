@@ -1,0 +1,38 @@
+{
+	"description": "Currency not found",
+	"content": {
+		"application/json": {
+			"example": {
+				"data": {
+					"currencyCD": "ZZZ",
+					"currencyName": "UNKNOWN CURRENCY"
+				},
+				"error": true,
+				"pagination": {},
+				"messages": [
+					"Currency not found"
+				]
+			},
+			"schema": {
+				"type": "object",
+				"properties": {
+					"error": {
+						"description": "Flag to indicate an error.",
+						"type": "boolean"
+					},
+					"messages": {
+						"description": "An array of error messages.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"data": {
+						"description": "Empty response",
+						"type": "object"
+					}
+				}
+			}
+		}
+	}
+}

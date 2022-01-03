@@ -1,0 +1,10 @@
+{
+    "data": {
+        "countryCD": "US",
+        "countryName": "UNITED STATES",
+        "countryCurrencyCD": "USD"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": []
+}

@@ -1,0 +1,51 @@
+{
+    "200": {
+        "description": "Show city record",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "The City returned",
+                            "type": "object",
+                            "properties": {
+								"cityID": {
+										"description": "The city identifier",
+										"type": "integer"
+                                },
+                                "cityName": {
+                                    "description": "The name of the city",
+                                    "type": "string"
+                                },
+                                "cityCD": {
+                                    "description": "An optional 3 alpha code for the city",
+                                    "type": "string"
+                                },
+                                "cityCountryCD": {
+                                    "description": "A country code where the city is located",
+                                    "type": "string"
+                                }
+							}
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

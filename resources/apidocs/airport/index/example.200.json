@@ -1,0 +1,57 @@
+{
+    "data": [
+        {
+          "gtw_airport_cd": "JFK",
+          "gtw_airport_nm": "NY KENNEDY AIRPORT",
+          "gtw_city_id": 1
+        },
+        {
+          "gtw_airport_cd": "CDG",
+          "gtw_airport_nm": "PARIS CHARLES DE GAULLE AIRPORT",
+          "gtw_city_id": 2
+        },
+        {
+          "gtw_airport_cd": "FCO",
+          "gtw_airport_nm": "ROME FIUMICINO AIRPORT",
+          "gtw_city_id": 3
+        },
+        {
+          "gtw_airport_cd": "FRA",
+          "gtw_airport_nm": "FRANKFURT AIRPORT",
+          "gtw_city_id": 4
+        },
+        {
+          "gtw_airport_cd": "BCN",
+          "gtw_airport_nm": "BARCELONA AIRPORT",
+          "gtw_city_id": 5
+        },
+        {
+          "gtw_airport_cd": "MEL",
+          "gtw_airport_nm": "MELBOURNE AIRPORT",
+          "gtw_city_id": 6
+        },
+        {
+          "gtw_airport_cd": "SYD",
+          "gtw_airport_nm": "SYDNEY AIRPORT",
+          "gtw_city_id": 7
+        },
+        {
+          "gtw_airport_cd": "BKK",
+          "gtw_airport_nm": "BANGKOK SUVARNABHUMI AIRPORT",
+          "gtw_city_id": 8
+        },
+        {
+          "gtw_airport_cd": "SIN",
+          "gtw_airport_nm": "SINGAPORE CHANGI AIRPORT",
+          "gtw_city_id": 9
+        },
+        {
+          "gtw_airport_cd": "YUL",
+          "gtw_airport_nm": "MONTREAL E.TRUDEAU AIRPORT",
+          "gtw_city_id": 10
+        }
+      ],
+    "error": false,
+    "pagination": {},
+    "messages": ["List of available airports"]
+}

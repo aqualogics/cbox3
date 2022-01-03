@@ -1,0 +1,99 @@
+{
+    "200": {
+        "description": "Successful country creation",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "a structure with a single key represented by the countryCD",
+                            "type": "object",
+                            "properties": {
+								"countryCD": {
+									"description": "The country code of the newly created Country.",
+									"type": "object"
+								}
+							}
+                        }
+
+                    }
+                }
+            }
+        }
+    },
+    "400": {
+        "description": "Validation failed trying to create a Country.",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.400.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 400",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "500": {
+        "description": "Database insert error.",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.500.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an internal server error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 500",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

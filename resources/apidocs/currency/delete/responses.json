@@ -1,0 +1,32 @@
+{
+    "200": {
+        "description": "Successfully delete a currency record",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty string",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

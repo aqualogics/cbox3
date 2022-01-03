@@ -1,0 +1,12 @@
+{
+    "data": {
+        "countryCD": "AA",
+        "countryName": "",
+        "countryCurrencyCD": "EUR"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "The 'country name' value is required"
+    ]
+}

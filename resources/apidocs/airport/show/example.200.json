@@ -1,0 +1,10 @@
+{
+    "data": {
+        "airportCD": "JFK",
+        "airportName": "NY KENNEDY AIRPORT",
+        "airportCityID": 1
+    },
+    "error": false,
+    "pagination": {},
+    "messages": []
+}

@@ -1,0 +1,12 @@
+{
+    "data": {
+        "cityName": "",
+        "cityCD": "",
+        "CityCountryCD": "US"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "The 'City name' is required"
+    ]
+}

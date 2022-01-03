@@ -1,0 +1,38 @@
+{
+	"description": "Airport not found",
+	"content": {
+		"application/json": {
+			"example": {
+				"data": {
+					"airportCD": "ZZZ",
+					"airportName": "UNKNOWN AIRPORT"
+				},
+				"error": true,
+				"pagination": {},
+				"messages": [
+					"Airport not found"
+				]
+			},
+			"schema": {
+				"type": "object",
+				"properties": {
+					"error": {
+						"description": "Flag to indicate an error.",
+						"type": "boolean"
+					},
+					"messages": {
+						"description": "An array of error messages.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"data": {
+						"description": "Empty response",
+						"type": "object"
+					}
+				}
+			}
+		}
+	}
+}

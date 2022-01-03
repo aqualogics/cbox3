@@ -1,0 +1,2672 @@
+openapi: 3.0.2
+info:
+  contact:
+    url: https://www.swagger.io/support
+    name: API Support
+    email: info@ortussolutions.com
+  termsOfService: ''
+  version: 1.0.0
+  license:
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+    name: Apache 2.0
+  title: ColdBox REST Template
+  description: This API produces amazing results and data.
+servers:
+  - url: https://mysite.com/v1
+    description: The main production server
+  - url: http://127.0.0.1:50693
+    description: The dev server
+paths:
+  /api/airport:
+    get:
+      summary: Returns a list of airports
+      tags: []
+      description: Returns a list of airports
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Get a list of airports
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The airport list
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        gtw_airport_cd:
+                          description: The airport IATA code
+                          type: string
+                        gtw_airport_nm:
+                          description: The name of the airport
+                          type: string
+                        gtw_city_id:
+                          description: The airport city identifier
+                          type: integer
+              example:
+                data:
+                  - gtw_airport_cd: JFK
+                    gtw_airport_nm: NY KENNEDY AIRPORT
+                    gtw_city_id: 1
+                  - gtw_airport_cd: CDG
+                    gtw_airport_nm: PARIS CHARLES DE GAULLE AIRPORT
+                    gtw_city_id: 2
+                  - gtw_airport_cd: FCO
+                    gtw_airport_nm: ROME FIUMICINO AIRPORT
+                    gtw_city_id: 3
+                  - gtw_airport_cd: FRA
+                    gtw_airport_nm: FRANKFURT AIRPORT
+                    gtw_city_id: 4
+                  - gtw_airport_cd: BCN
+                    gtw_airport_nm: BARCELONA AIRPORT
+                    gtw_city_id: 5
+                  - gtw_airport_cd: MEL
+                    gtw_airport_nm: MELBOURNE AIRPORT
+                    gtw_city_id: 6
+                  - gtw_airport_cd: SYD
+                    gtw_airport_nm: SYDNEY AIRPORT
+                    gtw_city_id: 7
+                  - gtw_airport_cd: BKK
+                    gtw_airport_nm: BANGKOK SUVARNABHUMI AIRPORT
+                    gtw_city_id: 8
+                  - gtw_airport_cd: SIN
+                    gtw_airport_nm: SINGAPORE CHANGI AIRPORT
+                    gtw_city_id: 9
+                  - gtw_airport_cd: YUL
+                    gtw_airport_nm: MONTREAL E.TRUDEAU AIRPORT
+                    gtw_city_id: 10
+                error: false
+                pagination: {}
+                messages:
+                  - List of available airports
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: AirportAPI.index
+      x-route: (GET) /api/airport
+      x-resourceId: b2a8432472c8d523eac85e05ba52d42d
+    post:
+      summary: Creates a new airport
+      tags: []
+      description: Creates a new airport
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Successful airport creation
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: AAA
+                  airportName: TEST
+                  airportCityID: 2
+                error: false
+                pagination: {}
+                messages:
+                  - Airport created
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: a structure with a single key represented by the countryCD
+                    type: object
+                    properties:
+                      airportCD:
+                        description: The airport IATA code of the newly created airport.
+                        type: object
+        '400':
+          description: Record create validation failed.
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: ''
+                  airportName: ''
+                  airportCityID: 3
+                error: true
+                pagination: {}
+                messages:
+                  - The 'airport code' is required
+                  - The 'airport name' is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 400
+                    type: object
+        '500':
+          description: Database insert error.
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: CDG
+                  airportName: TEST
+                  airportCityID: 2
+                error: true
+                pagination: {}
+                messages:
+                  - Attempted duplicate record insert
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: AirportAPI.create
+      x-route: (POST) /api/airport
+      requestBody:
+        description: Required fields to create an airport
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - airportCD
+                - airportName
+                - airportCityID
+              properties:
+                airportCD:
+                  description: The IATA code of the airport.
+                  type: string
+                airportName:
+                  description: The name of the airport
+                  type: string
+                airportCityID:
+                  description: The ID of the city associated to the airport
+                  type: integer
+              example:
+                airportCD: AAA
+                airportName: TEST
+                airportCityID: 2
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: f430064f6affe3420835928aced3b922
+    x-resourceId: 101a2b37806788a80a68054bef79ee3d
+  /api/airport/{airportCD}:
+    put:
+      summary: Update an airport
+      tags: []
+      description: Update an airport
+      operationId: ''
+      parameters:
+        - required: true
+          in: path
+          name: airportCD
+          schema:
+            default: ''
+            type: string
+          description: airportCD
+      responses:
+        '200':
+          description: Successful airport update
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: AAA
+                  airportName: TEST23
+                  airportCityID: 2
+                error: false
+                pagination: {}
+                messages:
+                  - Airport Updated
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Updated airport confirmation
+                    type: boolean
+        '400':
+          description: Record update validation failed.
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: AAA
+                  airportName: ''
+                  airportCityID: 3
+                error: true
+                pagination: {}
+                messages:
+                  - The 'airport name' value is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: 400 response data
+                    type: object
+        '404':
+          description: Airport not found
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: ZZZ
+                  airportName: UNKNOWN AIRPORT
+                error: true
+                pagination: {}
+                messages:
+                  - Airport not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        '500':
+          description: Referential integrity constraint error.
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: CDG
+                  airportName: TEST
+                  airportCityID: 99
+                error: true
+                pagination: {}
+                messages:
+                  - Referential integrity constraint violation on airportCityID
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: AirportAPI.update
+      x-route: (PUT) /api/airport/:airportCD
+      requestBody:
+        description: Fields required to update an airport
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - airportCD
+                - airportName
+                - airportCityID
+              properties:
+                airportCD:
+                  description: The standard IATA code of the airport.
+                  type: string
+                airportName:
+                  description: The name of the airport
+                  type: string
+                airportCityID:
+                  description: The ID of the city associated to the airport
+                  type: integer
+              example:
+                airportCD: AAA
+                airportName: TEST23
+                airportCityID: 2
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: f78b43ade07e77165a15dd300b3c456d
+    get:
+      summary: Display (show) a single airport
+      tags: []
+      description: Display (show) a single airport
+      operationId: ''
+      parameters:
+        - name: airportCD
+          description: The airport standard IATA code.
+          schema:
+            type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Show airport record
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: JFK
+                  airportName: NY KENNEDY AIRPORT
+                  airportCityID: 1
+                error: false
+                pagination: {}
+                messages: []
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: The airport record returned
+                    type: object
+                    properties:
+                      airportCD:
+                        description: The airport IATA code
+                        type: string
+                      airportName:
+                        description: The name of the airport
+                        type: string
+                      airportCityID:
+                        description: The ID of the city associated to the airport
+                        type: integer
+        '404':
+          description: Airport not found
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: ZZZ
+                  airportName: UNKNOWN AIRPORT
+                error: true
+                pagination: {}
+                messages:
+                  - Airport not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: AirportAPI.show
+      x-route: (GET) /api/airport/:airportCD
+      x-resourceId: 42b206f205ab0d9082fe3a3b0be7b5af
+    delete:
+      summary: Delete a airport
+      tags: []
+      description: Delete a airport
+      operationId: ''
+      parameters:
+        - name: airportCD
+          description: The key of the Airport record to delete.
+          schema:
+            type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Successfully delete an airport record
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: AAA
+                error: false
+                pagination: {}
+                messages:
+                  - Airport deleted
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty string
+                    type: boolean
+        '404':
+          description: Airport not found
+          content:
+            application/json:
+              example:
+                data:
+                  airportCD: ZZZ
+                  airportName: UNKNOWN AIRPORT
+                error: true
+                pagination: {}
+                messages:
+                  - Airport not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: AirportAPI.delete
+      x-route: (DELETE) /api/airport/:airportCD
+      x-resourceId: 7fdd821465628c8851063bf2b66de45d
+    x-resourceId: f3331842ed626cb00f45361044aebc94
+  /api/city:
+    get:
+      summary: Returns a list of cities
+      tags: []
+      description: Returns a list of cities
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Get a list of cities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: An array of cities.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        cty_city_id:
+                          description: The city identifier
+                          type: integer
+                        cty_city_name:
+                          description: The name of the city
+                          type: string
+                        cty_city_cd:
+                          description: An optional 3 alpha code for the city
+                          type: string
+                        cty_country_cd:
+                          description: A country code where the city is located
+                          type: string
+              example:
+                data:
+                  - cty_city_id: 1
+                    cty_city_nm: NEW YORK
+                    cty_city_cd: NYC
+                    cty_country_cd: US
+                  - cty_city_id: 2
+                    cty_city_nm: PARIS
+                    cty_city_cd: PAR
+                    cty_country_cd: FR
+                  - cty_city_id: 3
+                    cty_city_nm: ROME
+                    cty_city_cd: ''
+                    cty_country_cd: IT
+                  - cty_city_id: 4
+                    cty_city_nm: FRANKFURT
+                    cty_city_cd: ''
+                    cty_country_cd: DE
+                  - cty_city_id: 5
+                    cty_city_nm: BARCELONA
+                    cty_city_cd: ''
+                    cty_country_cd: ES
+                  - cty_city_id: 6
+                    cty_city_nm: MELBOURNE
+                    cty_city_cd: ''
+                    cty_country_cd: AU
+                  - cty_city_id: 7
+                    cty_city_nm: SYDNEY
+                    cty_city_cd: ''
+                    cty_country_cd: AU
+                  - cty_city_id: 8
+                    cty_city_nm: BANGKOK
+                    cty_city_cd: ''
+                    cty_country_cd: TH
+                  - cty_city_id: 9
+                    cty_city_nm: SINGAPORE
+                    cty_city_cd: ''
+                    cty_country_cd: SG
+                  - cty_city_id: 10
+                    cty_city_nm: MONTREAL
+                    cty_city_cd: ''
+                    cty_country_cd: CA
+                error: false
+                pagination: {}
+                messages: []
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CityAPI.index
+      x-route: (GET) /api/city
+      x-resourceId: 4cb83d9c69413bb31b203c1ef7ff6dea
+    post:
+      summary: Creates a new City.
+      tags: []
+      description: Creates a new City.
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Successful City creation
+          content:
+            application/json:
+              example:
+                data:
+                  CityName: HOUSTON
+                  CityCD: ''
+                  CityCountryCD: US
+                error: false
+                pagination: {}
+                messages:
+                  - City created
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: a structure with a single key represented by the cityID
+                    type: object
+                    properties:
+                      cityID:
+                        description: The identifier of the newly created City.
+                        type: integer
+        '400':
+          description: City record validation failed
+          content:
+            application/json:
+              example:
+                data:
+                  cityName: ''
+                  cityCD: ''
+                  CityCountryCD: US
+                error: true
+                pagination: {}
+                messages:
+                  - The 'City name' is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 400
+                    type: object
+        '500':
+          description: Database insert error
+          content:
+            application/json:
+              example:
+                data:
+                  cityName: PARIS
+                  cityCD: PAR
+                  cityCountryCD: FR
+                error: true
+                pagination: {}
+                messages:
+                  - Attempted duplicate record entry
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CityAPI.create
+      x-route: (POST) /api/city
+      requestBody:
+        description: Required fields to create a City
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - cityName
+                - cityCountryCD
+              properties:
+                cityName:
+                  description: The name of the city
+                  type: string
+                cityCD:
+                  description: An optional code for the city
+                  type: string
+                cityCountryCD:
+                  description: The ISO code of the country where the city is located
+                  type: string
+              example:
+                cityName: VALENCIA
+                cityCD: ''
+                cityCountryCD: ES
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: 9d75a9c5be9a1b13b298a5344823c60a
+    x-resourceId: ddb1fa4862c495949d758354cd29309c
+  /api/city/{cityID}:
+    put:
+      summary: Update a City
+      tags: []
+      description: Update a City
+      operationId: ''
+      parameters:
+        - required: true
+          in: path
+          name: cityID
+          schema:
+            default: ''
+            type: string
+          description: cityID
+      responses:
+        '200':
+          description: Successful City update
+          content:
+            application/json:
+              example:
+                data:
+                  cityName: HOUSTON
+                  cityCD: HOU
+                  cityCountryCD: US
+                error: false
+                pagination: {}
+                messages:
+                  - City Updated
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty string for City Update
+                    type: boolean
+        '400':
+          description: Record update validation failed.
+          content:
+            application/json:
+              example:
+                data:
+                  cityName: ''
+                  cityCD: ''
+                  cityCountryCD: US
+                error: true
+                pagination: {}
+                messages:
+                  - The 'City name' is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 400
+                    type: object
+        '404':
+          description: City not found
+          content:
+            application/json:
+              example:
+                data:
+                  cityID: 99
+                  cityName: UNKNOWN CITY
+                error: true
+                pagination: {}
+                messages:
+                  - City not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        '500':
+          description: Referential integrity constraint violation.
+          content:
+            application/json:
+              example:
+                data:
+                  cityName: PARIS
+                  cityCountryCD: FR
+                error: true
+                pagination: {}
+                messages:
+                  - Unique index constraint violation
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CityAPI.update
+      x-route: (PUT) /api/city/:cityID
+      requestBody:
+        description: Fields required to update a City
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - cityName
+                - cityCountryCD
+              properties:
+                cityName:
+                  description: The name of the City
+                  type: string
+                cityCD:
+                  description: An optional city code
+                  type: string
+                cityCountryCD:
+                  description: The country where the city is located
+                  type: string
+              example:
+                cityName: HOUSTON
+                cityCD: HOU
+                cityCountryCD: US
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: 863bef7c937a065e028530cc017b0b2b
+    get:
+      summary: Display (show) a single City.
+      tags: []
+      description: Display (show) a single City.
+      operationId: ''
+      parameters:
+        - name: cityID
+          description: The city identifier
+          schema:
+            type: integer
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Show city record
+          content:
+            application/json:
+              example:
+                data:
+                  cityID: 1
+                  cityName: NEW YORK
+                  cityCD: NYC
+                  cityCountryCD: US
+                error: false
+                pagination: {}
+                messages: []
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: The City returned
+                    type: object
+                    properties:
+                      cityID:
+                        description: The city identifier
+                        type: integer
+                      cityName:
+                        description: The name of the city
+                        type: string
+                      cityCD:
+                        description: An optional 3 alpha code for the city
+                        type: string
+                      cityCountryCD:
+                        description: A country code where the city is located
+                        type: string
+        '404':
+          description: City not found
+          content:
+            application/json:
+              example:
+                data:
+                  cityID: 99
+                  cityName: UNKNOWN CITY
+                error: true
+                pagination: {}
+                messages:
+                  - City not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CityAPI.show
+      x-route: (GET) /api/city/:cityID
+      x-resourceId: 520298e2847dee7d63f79b7b9f24f5a1
+    delete:
+      summary: Delete a City
+      tags: []
+      description: Delete a City
+      operationId: ''
+      parameters:
+        - name: cityID
+          description: The identifier of the City to delete.
+          schema:
+            type: integer
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Successfully delete a city record
+          content:
+            application/json:
+              example:
+                data: {}
+                error: false
+                pagination: {}
+                messages:
+                  - City deleted
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty string
+                    type: boolean
+        '404':
+          description: City not found
+          content:
+            application/json:
+              example:
+                data:
+                  cityID: 99
+                  cityName: UNKNOWN CITY
+                error: true
+                pagination: {}
+                messages:
+                  - City not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        '500':
+          description: Referential integrity constraint violation.
+          content:
+            application/json:
+              example:
+                data:
+                  cityName: NEW YORK
+                  cityCountryCD: US
+                error: true
+                pagination: {}
+                messages:
+                  - Database integrity constraint error
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CityAPI.delete
+      x-route: (DELETE) /api/city/:cityID
+      x-resourceId: d1c5acf66c9e5a807d2be67d1ba35178
+    x-resourceId: 8288d776d96e66a00e3db688a515569f
+  /api/country:
+    get:
+      summary: Returns a list of countries
+      tags: []
+      description: Returns a list of countries
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Get a list of available countries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The country list
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        cnt_country_cd:
+                          description: The country ISO code
+                          type: string
+                        cnt_country_nm:
+                          description: The name of the country
+                          type: string
+                        cnt_currency_cd:
+                          description: The country currency ISO code
+                          type: string
+              example:
+                data:
+                  - cnt_country_cd: AU
+                    cnt_country_nm: AUSTRALIA
+                    cnt_currency_cd: AUD
+                  - cnt_country_cd: CA
+                    cnt_country_nm: CANADA
+                    cnt_currency_cd: CAD
+                  - cnt_country_cd: DE
+                    cnt_country_nm: GERMANY
+                    cnt_currency_cd: EUR
+                  - cnt_country_cd: ES
+                    cnt_country_nm: SPAIN
+                    cnt_currency_cd: EUR
+                  - cnt_country_cd: FR
+                    cnt_country_nm: FRANCE
+                    cnt_currency_cd: EUR
+                  - cnt_country_cd: IT
+                    cnt_country_nm: ITALY
+                    cnt_currency_cd: EUR
+                  - cnt_country_cd: SG
+                    cnt_country_nm: SINGAPORE
+                    cnt_currency_cd: SGD
+                  - cnt_country_cd: TH
+                    cnt_country_nm: THAILAND
+                    cnt_currency_cd: THB
+                  - cnt_country_cd: US
+                    cnt_country_nm: UNITED STATES
+                    cnt_currency_cd: USD
+                error: false
+                pagination: {}
+                messages:
+                  - List of available countries
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CountryAPI.index
+      x-route: (GET) /api/country
+      x-resourceId: 20af718ef0362234c9b6dfff1d635b9e
+    post:
+      summary: Creates a new country
+      tags: []
+      description: Creates a new country
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Successful country creation
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: AA
+                  countryName: TEST
+                  countryCurrencyCD: EUR
+                error: false
+                pagination: {}
+                messages:
+                  - Country created
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: a structure with a single key represented by the countryCD
+                    type: object
+                    properties:
+                      countryCD:
+                        description: The country code of the newly created Country.
+                        type: object
+        '400':
+          description: Validation failed trying to create a Country.
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: AA
+                  countryName: ''
+                  countryCurrencyCD: EUR
+                error: true
+                pagination: {}
+                messages:
+                  - The 'country name' value is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 400
+                    type: object
+        '500':
+          description: Database insert error.
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: FR
+                  countryName: TEST
+                  countryCurrencyCD: EUR
+                error: true
+                pagination: {}
+                messages:
+                  - Attempted duplicate record insert
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CountryAPI.create
+      x-route: (POST) /api/country
+      requestBody:
+        description: Required fields to create a Country
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - countryCD
+                - countryName
+                - countryCurrencyCD
+              properties:
+                countryCD:
+                  description: The ISO code of the country.
+                  type: string
+                countryName:
+                  description: The name of the country
+                  type: string
+                countryCurrencyCD:
+                  description: The ISO code of the country's currency
+                  type: string
+              example:
+                countryCD: AA
+                countryName: TEST
+                countryCurrencyCD: EUR
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: 1a9410b07b45665435e60ecbfc6bbb14
+    x-resourceId: 87a8c23795aa7f1f6b07141526f1ef0b
+  /api/country/{countryCD}:
+    put:
+      summary: Update a country
+      tags: []
+      description: Update a country
+      operationId: ''
+      parameters:
+        - required: true
+          in: path
+          name: countryCD
+          schema:
+            default: ''
+            type: string
+          description: countryCD
+      responses:
+        '200':
+          description: Successful country update
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: AA
+                  countryName: TEST23
+                  countryCurrencyCD: EUR
+                error: false
+                pagination: {}
+                messages:
+                  - Country Updated
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Country Update data structure
+                    type: boolean
+        '400':
+          description: Record update validation failed.
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: AA
+                  countryName: ''
+                  countryCurrencyCD: EUR
+                error: true
+                pagination: {}
+                messages:
+                  - The 'country name' value is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: 400 response data
+                    type: object
+        '404':
+          description: Country not found
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: ZZ
+                  countryName: UNKNOWN COUNTRY
+                error: true
+                pagination: {}
+                messages:
+                  - Country not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        '500':
+          description: Referential integrity constraint error.
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: FR
+                  countryName: TEST
+                  countryCurrencyCD: ZZZ
+                error: true
+                pagination: {}
+                messages:
+                  - Referential integrity constraint violation on country currency code
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CountryAPI.update
+      x-route: (PUT) /api/country/:countryCD
+      requestBody:
+        description: Fields required to update a Country
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - countryCD
+                - countryName
+                - countryCurrencyCD
+              properties:
+                countryCD:
+                  description: The standard ISO code of the country.
+                  type: string
+                countryName:
+                  description: The name of the country
+                  type: string
+                countryCurrencyCD:
+                  description: The standard ISO code of the country's currency
+                  type: string
+              example:
+                countryCD: AA
+                countryName: TEST23
+                countryCurrencyCD: EUR
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: c428168be19b6cc4c88521fa8a80eeb4
+    get:
+      summary: Display (show) a single country
+      tags: []
+      description: Display (show) a single country
+      operationId: ''
+      parameters:
+        - name: countryCD
+          description: The country standard ISO code.
+          schema:
+            type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Show country record
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: US
+                  countryName: UNITED STATES
+                  countryCurrencyCD: USD
+                error: false
+                pagination: {}
+                messages: []
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: The country record returned
+                    type: object
+                    properties:
+                      countryCD:
+                        description: The country code
+                        type: string
+                      countryName:
+                        description: The name of the country
+                        type: string
+                      countryCurrencyCD:
+                        description: The ISO code of the country's currency
+                        type: string
+        '404':
+          description: Country not found
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: ZZ
+                  countryName: UNKNOWN COUNTRY
+                error: true
+                pagination: {}
+                messages:
+                  - Country not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CountryAPI.show
+      x-route: (GET) /api/country/:countryCD
+      x-resourceId: 043b2ba56f3ceaf5e6286206eff79f42
+    delete:
+      summary: Delete a country
+      tags: []
+      description: Delete a country
+      operationId: ''
+      parameters:
+        - name: countryCD
+          description: The key of the Country record to delete.
+          schema:
+            type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Successfully delete the country record
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: AA
+                error: false
+                pagination: {}
+                messages:
+                  - Country deleted
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty string
+                    type: boolean
+        '404':
+          description: Country not found
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: ZZ
+                  countryName: UNKNOWN COUNTRY
+                error: true
+                pagination: {}
+                messages:
+                  - Country not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        '500':
+          description: Referential integrity constraint error.
+          content:
+            application/json:
+              example:
+                data:
+                  countryCD: US
+                  countryName: UNITED STATES
+                  countryCurrencyCD: USD
+                error: true
+                pagination: {}
+                messages:
+                  - Database integrity constraint error
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CountryAPI.delete
+      x-route: (DELETE) /api/country/:countryCD
+      x-resourceId: 7bb1eec92ec019c46288e366248d45a6
+    x-resourceId: c1c0b9e44af66f83f67071b29fd37240
+  /api/currency:
+    get:
+      summary: Returns a list of currencies
+      tags: []
+      description: Returns a list of currencies
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Get a list of currencies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The currency list
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        cur_currency_cd:
+                          description: The currency ISO code
+                          type: string
+                        cur_currency_nm:
+                          description: The name of the currency
+                          type: string
+              example:
+                data:
+                  - cur_currency_cd: AUD
+                    cur_currency_nm: AUSTRALIAN DOLLAR
+                  - cur_currency_cd: CAD
+                    cur_currency_nm: CANADIAN DOLLAR
+                  - cur_currency_cd: EUR
+                    cur_currency_nm: EURO
+                  - cur_currency_cd: SGD
+                    cur_currency_nm: SINGAPORE DOLLAR
+                  - cur_currency_cd: THB
+                    cur_currency_nm: THAI BAHT
+                  - cur_currency_cd: USD
+                    cur_currency_nm: US DOLLAR
+                error: false
+                pagination: {}
+                messages:
+                  - List of currencies
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CurrencyAPI.index
+      x-route: (GET) /api/currency
+      x-resourceId: e2386f8c3532dcef7140f8c7a1902378
+    post:
+      summary: Creates a new Currency
+      tags: []
+      description: Creates a new Currency
+      operationId: ''
+      parameters: []
+      responses:
+        '200':
+          description: Successful Currency creation
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: AAA
+                  currencyName: TEST
+                error: false
+                pagination: {}
+                messages:
+                  - Currency created
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: a structure with a single key represented by the currencyCD
+                    type: object
+                    properties:
+                      currencyCD:
+                        description: The currency code of the newly created Currency.
+                        type: object
+        '400':
+          description: Validation failed trying to create a Currency.
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: ''
+                  currencyName: ''
+                error: true
+                pagination: {}
+                messages:
+                  - The 'Currency code' is required
+                  - The 'Currency name' is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 400
+                    type: object
+        '500':
+          description: Duplicate currency record database insert.
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: EUR
+                  currencyName: TEST
+                error: true
+                pagination: {}
+                messages:
+                  - Attempted duplicate record entry
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an internal server error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response for 500
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CurrencyAPI.create
+      x-route: (POST) /api/currency
+      requestBody:
+        description: Required fields to create a Currency
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - currencyCD
+                - currencyName
+              properties:
+                currencyCD:
+                  description: The ISO code of the currency.
+                  type: string
+                currencyName:
+                  description: The name of the currency
+                  type: string
+              example:
+                currencyCD: AAA
+                currencyName: TEST
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: 4197c700ac3286d4c79d8931b62af58f
+    x-resourceId: 515d4b74b750846e7e72e459e65d81ab
+  /api/currency/{currencyCD}:
+    put:
+      summary: Update a Currency
+      tags: []
+      description: Update a Currency
+      operationId: ''
+      parameters:
+        - required: true
+          in: path
+          name: currencyCD
+          schema:
+            default: ''
+            type: string
+          description: currencyCD
+      responses:
+        '200':
+          description: Successful currency update
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: AAA
+                  currencyName: TEST23
+                error: false
+                pagination: {}
+                messages:
+                  - Currency Updated
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Currency Update data structure
+                    type: boolean
+        '400':
+          description: Validation failed trying to update a Currency.
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: AAA
+                  currencyName: ''
+                error: true
+                pagination: {}
+                messages:
+                  - The 'currency name' value is required
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: 400 response data
+                    type: object
+        '404':
+          description: Currency not found
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: ZZZ
+                  currencyName: UNKNOWN CURRENCY
+                error: true
+                pagination: {}
+                messages:
+                  - Currency not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CurrencyAPI.update
+      x-route: (PUT) /api/currency/:currencyCD
+      requestBody:
+        description: Fields required to update a Currency
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - currencyCD
+                - currencyName
+              properties:
+                currencyCD:
+                  description: The standard ISO code of the currency.
+                  type: string
+                currencyName:
+                  description: The name of the currency
+                  type: string
+              example:
+                currencyCD: AAA
+                currencyName: TEST23
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: 2062378145e2ec7db3d10e5a6f686ef6
+    get:
+      summary: Display (show) a single currency
+      tags: []
+      description: Display (show) a single currency
+      operationId: ''
+      parameters:
+        - name: currencyCD
+          description: The currency standard ISO code
+          schema:
+            type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Show currency record
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: USD
+                  currencyName: US DOLLAR
+                error: false
+                pagination: {}
+                messages: []
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: The currency record returned
+                    type: object
+                    properties:
+                      currencyCD:
+                        description: The currency code
+                        type: string
+                      currencyName:
+                        description: The name of the currency
+                        type: string
+        '404':
+          description: Currency not found
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: ZZZ
+                  currencyName: UNKNOWN CURRENCY
+                error: true
+                pagination: {}
+                messages:
+                  - Currency not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CurrencyAPI.show
+      x-route: (GET) /api/currency/:currencyCD
+      x-resourceId: 4e7fdc1f38b55eb95b44c646e0daf21a
+    delete:
+      summary: Delete a Currency
+      tags: []
+      description: Delete a Currency
+      operationId: ''
+      parameters:
+        - name: currencyCD
+          description: The key of the Currency record to delete.
+          schema:
+            type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Successfully delete a currency record
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: AAA
+                error: false
+                pagination: {}
+                messages:
+                  - Currency deleted
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty string
+                    type: boolean
+        '404':
+          description: Currency not found
+          content:
+            application/json:
+              example:
+                data:
+                  currencyCD: ZZZ
+                  currencyName: UNKNOWN CURRENCY
+                error: true
+                pagination: {}
+                messages:
+                  - Currency not found
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of error messages.
+                    type: array
+                    items:
+                      type: string
+                  data:
+                    description: Empty response
+                    type: object
+        default:
+          description: ''
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: CurrencyAPI.delete
+      x-route: (DELETE) /api/currency/:currencyCD
+      x-resourceId: 72647c33382728e56095ea99907ca3ed
+    x-resourceId: 1cab0045f69dc634cbf3aedf0ad1408e
+  /api/echo:
+    get:
+      summary: Say Hello
+      tags: []
+      description: Say Hello
+      operationId: ''
+      parameters: []
+      responses:
+        default:
+          description: A welcome message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The welcome message
+                    type: string
+              example:
+                data: Welcome to my ColdBox RESTFul Service
+                error: false
+                pagination: {}
+                messages: []
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: Echo.index
+      x-route: (GET) /api/echo
+      x-resourceId: 7053e9a2dcfacb927792f2e9f5c20794
+    x-resourceId: ec5b0b18c503a3e700309d9772c47730
+  /api/login:
+    post:
+      summary: Login a user into the application
+      tags: []
+      description: Login a user into the application
+      operationId: ''
+      parameters: []
+      responses:
+        '401':
+          description: Validation exception
+          content:
+            application/json:
+              example:
+                data:
+                  LNAME:
+                    - MESSAGE: The 'LNAME' value is required
+                      VALIDATIONDATA: true
+                      ERRORMETADATA: {}
+                      REJECTEDVALUE: ''
+                      VALIDATIONTYPE: Required
+                      FIELD: LNAME
+                  FNAME:
+                    - MESSAGE: The 'FNAME' value is required
+                      VALIDATIONDATA: true
+                      ERRORMETADATA: {}
+                      REJECTEDVALUE: ''
+                      VALIDATIONTYPE: Required
+                      FIELD: FNAME
+                  PASSWORD:
+                    - MESSAGE: The 'PASSWORD' value is required
+                      VALIDATIONDATA: true
+                      ERRORMETADATA: {}
+                      REJECTEDVALUE: ''
+                      VALIDATIONTYPE: Required
+                      FIELD: PASSWORD
+                  EMAIL:
+                    - MESSAGE: The 'EMAIL' value is required
+                      VALIDATIONDATA: true
+                      ERRORMETADATA: {}
+                      REJECTEDVALUE: ''
+                      VALIDATIONTYPE: Required
+                      FIELD: EMAIL
+                error: true
+                pagination: {}
+                messages:
+                  - Validation exceptions occurred, please see the data
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The validation data packet
+                    type: object
+                    properties:
+                      '{invalidField}':
+                        description: An invalid field will contain an array of information messages
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MESSAGE:
+                              type: string
+                              description: The human readable error message
+                            VALIDATIONDATA:
+                              type: boolean
+                              description: The validation data attached
+                            ERRORMETADATA:
+                              type: object
+                              description: Any error metdata attached
+                            REJECTEDVALUE:
+                              type: string
+                              description: The rejected value if any
+                            VALIDATIONTYPE:
+                              type: string
+                              description: The contraint type applied
+                            FIELD:
+                              type: string
+                              description: The field name that caused the validation
+        default:
+          description: Application registration successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The data packet of the registration
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        description: The beaerer token created for the registration
+                      user:
+                        description: The user that is logged in
+                        type: object
+                        properties:
+                          id:
+                            description: The User ID
+                            type: integer
+                          fname:
+                            description: The user's first name
+                            type: string
+                          lname:
+                            description: The user's last name
+                            type: integer
+                          email:
+                            description: The user's email
+                            type: string
+                          permissions:
+                            description: The collection of permissions
+                            type: array
+                            items:
+                              type: string
+              example:
+                data: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE1ODkzMDUwMzEsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6NjUxMDAvIiwic3ViIjoxLCJleHAiOjE1ODkzMDg2MzEsImp0aSI6IkQxNkI4Qzg5NTc2OUU5MDcyNUNBQTU3M0I3M0FCNTc2In0.VDsqEDCXtHnrMXZYXqE2To2lQpmQAmHP8asXjhw_c2KsI_1mx2gZETuIrVNXckUl9zdevx2O818PlCkp6znmGw
+                error: false
+                pagination: {}
+                messages:
+                  - Bearer token created and it expires in 60 minutes
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: Auth.login
+      x-route: (POST) /api/login
+      requestBody:
+        description: Needed fields to login a user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  description: The email to use for login in
+                  type: string
+                password:
+                  description: The password to use for login in
+                  type: string
+              example:
+                email: user@email.org
+                password: test
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: ef07f7b23d3e345b5832856cf2ba8fb2
+    x-resourceId: bb7ab01920e668a383ff6ee4a01dcf2f
+  /api/logout:
+    post:
+      summary: Logout a user
+      tags: []
+      description: Logout a user
+      operationId: ''
+      parameters: []
+      responses:
+        '500':
+          description: Invalid token or expired token or no token
+          content:
+            application/json:
+              example:
+                data: {}
+                error: true
+                pagination: {}
+                messages:
+                  - 'General application error: Token not found in authorization header or the custom header or the request collection'
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The data packet
+                    type: object
+                    properties: {}
+        default:
+          description: Authenticate in the application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The data packet
+                    type: object
+                    properties: {}
+              example:
+                data: {}
+                error: false
+                pagination: {}
+                messages:
+                  - Successfully logged out
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: Auth.logout
+      security:
+        - bearerAuth: []
+        - ApiKeyAuth: []
+      x-route: (POST) /api/logout
+      x-resourceId: 376d5c7277cc16b34cb88b2eef819fe9
+    x-resourceId: 8f0fb362eebe1f36735a9aff4c65b386
+  /api/register:
+    post:
+      summary: Register a new user in the system
+      tags: []
+      description: Register a new user in the system
+      operationId: ''
+      parameters: []
+      responses:
+        '400':
+          description: Invalid or Missing Authentication Credentials
+          content:
+            application/json:
+              example:
+                data: {}
+                error: true
+                pagination: {}
+                messages:
+                  - Invalid or Missing Authentication Credentials
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The data packet
+                    type: object
+                    properties: {}
+        default:
+          description: Authenticate in the application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The bearer token created for the user
+                    type: string
+              example:
+                data:
+                  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE1ODkzMTI3NzcsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6NjUxMDAvIiwic3ViIjoiRTBDMTlDNjgtRDA5MC00QzY4LUE5NUY4NUIzRDFGRDZCODIiLCJleHAiOjE1ODkzMTYzNzcsImp0aSI6IjQ3Q0QxMDlDNTA4NTdDQTlGRUVBMDY0NzNEQzMxRkY3In0.I3F-MFsy7BbgLYwt6L9FR1HMNu6ZsUpkFQRgbpXdaPBbIbHRznWEw3MTsTKf654g0eO_yE5JVhGYYRzn_VyR6g
+                  user:
+                    lname: majano
+                    permissions: []
+                    fname: luis
+                    id: E0C19C68-D090-4C68-A95F85B3D1FD6B82
+                    email: test@test.com
+                error: false
+                pagination: {}
+                messages:
+                  - User registered correctly and Bearer token created and it expires in 60 minutes
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: Auth.register
+      x-route: (POST) /api/register
+      requestBody:
+        description: Needed fields to register a user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - fname
+                - lname
+                - email
+                - password
+              properties:
+                fname:
+                  description: The user's first name
+                  type: string
+                lname:
+                  description: The user's last name
+                  type: string
+                email:
+                  description: The email to use for login in
+                  type: string
+                password:
+                  description: The password to use for login in
+                  type: string
+              example:
+                fname: luis
+                lname: majano
+                email: user@email.org
+                password: test
+        x-resourceId: 1be38aa366c4b7daef5e4b527902a97b
+      x-resourceId: db39905c8c4bb994612194559fdb0da4
+    x-resourceId: 3874c7c7fd9dd7c5140bf61c64d8ed33
+  /api/whoami:
+    get:
+      summary: A secured route that shows you your information
+      tags: []
+      description: A secured route that shows you your information
+      operationId: ''
+      parameters: []
+      responses:
+        '401':
+          description: Invalid or Missing Authentication Credentials
+          content:
+            application/json:
+              example:
+                data: {}
+                error: true
+                pagination: {}
+                messages:
+                  - Invalid or Missing Authentication Credentials
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The data packet
+                    type: object
+                    properties: {}
+        default:
+          description: Returns the logged in user information
+          content:
+            application/json:
+              example:
+                data:
+                  lname: admin
+                  permissions: []
+                  fname: admin
+                  id: 1
+                  email: admin@coldbox.org
+                error: false
+                pagination: {}
+                messages: []
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: Flag to indicate an error.
+                    type: boolean
+                  messages:
+                    description: An array of messages related to the request.
+                    type: array
+                    items:
+                      type: string
+                  pagination:
+                    description: Pagination information.
+                    type: object
+                    properties: {}
+                  data:
+                    description: The user that is logged in
+                    type: object
+                    properties:
+                      id:
+                        description: The User ID
+                        type: integer
+                      fname:
+                        description: The user's first name
+                        type: string
+                      lname:
+                        description: The user's last name
+                        type: integer
+                      email:
+                        description: The user's email
+                        type: string
+                      permissions:
+                        description: The collection of permissions
+                        type: array
+                        items:
+                          type: string
+        x-resourceId: a9f0a3a63fe6b5bd954760c6ac09e85c
+      externalDocs:
+        url: ''
+        x-resourceId: fe95dd9bc2c364412427feafb0fe4745
+        description: ''
+      x-coldbox-operation: Echo.whoami
+      security:
+        - bearerAuth: []
+        - ApiKeyAuth: []
+      x-resourceId: 8a6eeff65a7d8c98ec4343d9892fc503
+    x-resourceId: 2f5ef9c9a9cf239cb05e12acd9a6f693
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      in: header
+      name: x-api-key
+      type: apiKey
+      description: User your JWT as an Api Key for security
+    bearerAuth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+security: []
+tags: []
+externalDocs:
+  url: https://blog.readme.io/an-example-filled-guide-to-swagger-3-2/
+  description: Find more info here

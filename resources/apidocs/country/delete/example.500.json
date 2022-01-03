@@ -1,0 +1,12 @@
+{
+    "data": {
+        "countryCD": "US",
+        "countryName": "UNITED STATES",
+        "countryCurrencyCD": "USD"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Database integrity constraint error"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "airportCD",
+            "description": "The key of the Airport record to delete.",
+            "schema": {
+                "type": "string"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

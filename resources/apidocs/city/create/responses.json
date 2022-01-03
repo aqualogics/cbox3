@@ -1,0 +1,99 @@
+{
+    "200": {
+        "description": "Successful City creation",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "a structure with a single key represented by the cityID",
+                            "type": "object",
+                            "properties": {
+								"cityID": {
+									"description": "The identifier of the newly created City.",
+									"type": "integer"
+								}
+							}
+                        }
+
+                    }
+                }
+            }
+        }
+    },
+    "400": {
+        "description": "City record validation failed",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.400.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 400",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "500": {
+        "description": "Database insert error",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.500.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an internal server error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 500",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

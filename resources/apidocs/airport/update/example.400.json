@@ -1,0 +1,12 @@
+{
+    "data": {
+        "airportCD": "AAA",
+        "airportName": "",
+        "airportCityID": 3
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "The 'airport name' value is required"
+    ]
+}

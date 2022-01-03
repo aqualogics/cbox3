@@ -1,0 +1,11 @@
+{
+    "data": {
+        "currencyCD": "AAA",
+        "currencyName": ""
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "The 'currency name' value is required"
+    ]
+}

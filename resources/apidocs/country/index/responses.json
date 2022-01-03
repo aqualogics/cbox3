@@ -1,0 +1,54 @@
+{
+    "200": {
+        "description": "Get a list of available countries",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of messages related to the request.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+						},
+						"pagination" : {
+							"description": "Pagination information.",
+                            "type": "object",
+                            "properties": {}
+						},
+                        "data": {
+                            "description": "The country list",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+									"cnt_country_cd": {
+										"description": "The country ISO code",
+										"type": "string"
+                                    },
+                                    "cnt_country_nm": {
+										"description": "The name of the country",
+										"type": "string"
+									},
+									"cnt_currency_cd": {
+										"description": "The country currency ISO code",
+										"type": "string"
+                                    }	
+                                }
+                            }
+                        }
+                    }
+				},
+				"example": {
+					"$ref": "example.200.json"
+				}
+            }
+        }
+    }
+}

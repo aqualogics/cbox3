@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "cityID",
+            "description": "The identifier of the City to delete.",
+            "schema": {
+                "type": "integer"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

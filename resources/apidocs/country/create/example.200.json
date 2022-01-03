@@ -1,0 +1,12 @@
+{
+    "data": {
+        "countryCD": "AA",
+        "countryName": "TEST",
+        "countryCurrencyCD": "EUR"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "Country created"
+    ]
+}

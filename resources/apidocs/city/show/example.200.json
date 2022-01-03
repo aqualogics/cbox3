@@ -1,0 +1,11 @@
+{
+    "data": {
+        "cityID": 1,
+        "cityName": "NEW YORK",
+        "cityCD": "NYC",
+        "cityCountryCD": "US"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": []
+}

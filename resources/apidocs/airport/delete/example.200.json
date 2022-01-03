@@ -1,0 +1,10 @@
+{
+    "data": {
+        "airportCD": "AAA"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "Airport deleted"
+    ]
+}

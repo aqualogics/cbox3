@@ -1,0 +1,93 @@
+{
+    "200": {
+        "description": "Successful City update",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty string for City Update",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "400": {
+        "description": "Record update validation failed.",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.400.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 400",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "500": {
+        "description": "Referential integrity constraint violation.",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.500.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an internal server error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 500",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

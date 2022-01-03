@@ -1,0 +1,34 @@
+{
+    "description": "Fields required to update a City",
+    "required": true,
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "required": [
+                    "cityName",
+                    "cityCountryCD"
+                ],
+                "properties": {
+                    "cityName": {
+                        "description": "The name of the City",
+                        "type": "string"
+                    },
+                    "cityCD": {
+                        "description": "An optional city code",
+                        "type": "string"
+                    },
+                    "cityCountryCD": {
+                        "description": "The country where the city is located",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "cityName": "HOUSTON",
+                    "cityCD": "HOU",
+                    "cityCountryCD": "US"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "200": {
+        "description": "Show currency record",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "The currency record returned",
+                            "type": "object",
+                            "properties": {
+								"currencyCD": {
+										"description": "The currency code",
+										"type": "string"
+                                },
+                                "currencyName": {
+                                    "description": "The name of the currency",
+                                    "type": "string"
+                                }
+							}
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

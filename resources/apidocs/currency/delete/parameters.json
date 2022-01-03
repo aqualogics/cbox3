@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "currencyCD",
+            "description": "The key of the Currency record to delete.",
+            "schema": {
+                "type": "string"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "data": [
+
+        {
+            "cty_city_id": 1,
+            "cty_city_nm": "NEW YORK",
+            "cty_city_cd": "NYC",
+            "cty_country_cd": "US"
+        },
+        {
+            "cty_city_id": 2,
+            "cty_city_nm": "PARIS",
+            "cty_city_cd": "PAR",
+            "cty_country_cd": "FR"
+        },
+        {
+            "cty_city_id": 3,
+            "cty_city_nm": "ROME",
+            "cty_city_cd": "",
+            "cty_country_cd": "IT"
+        },
+        {
+            "cty_city_id": 4,
+            "cty_city_nm": "FRANKFURT",
+            "cty_city_cd": "",
+            "cty_country_cd": "DE"
+        },
+        {
+            "cty_city_id": 5,
+            "cty_city_nm": "BARCELONA",
+            "cty_city_cd": "",
+            "cty_country_cd": "ES"
+        },
+        {
+            "cty_city_id": 6,
+            "cty_city_nm": "MELBOURNE",
+            "cty_city_cd": "",
+            "cty_country_cd": "AU"
+        },
+        {
+            "cty_city_id": 7,
+            "cty_city_nm": "SYDNEY",
+            "cty_city_cd": "",
+            "cty_country_cd": "AU"
+        },
+        {
+            "cty_city_id": 8,
+            "cty_city_nm": "BANGKOK",
+            "cty_city_cd": "",
+            "cty_country_cd": "TH"
+        },
+        {
+            "cty_city_id": 9,
+            "cty_city_nm": "SINGAPORE",
+            "cty_city_cd": "",
+            "cty_country_cd": "SG"
+        },
+        {
+            "cty_city_id": 10,
+            "cty_city_nm": "MONTREAL",
+            "cty_city_cd": "",
+            "cty_country_cd": "CA"
+        }
+    ],
+    "error": false,
+    "pagination": {},
+    "messages": []
+}

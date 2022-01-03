@@ -1,0 +1,29 @@
+{
+    "description": "Fields required to update a Currency",
+    "required": true,
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "required": [
+                    "currencyCD",
+                    "currencyName"
+                ],
+                "properties": {
+                    "currencyCD": {
+                        "description": "The standard ISO code of the currency.",
+                        "type": "string"
+                    },
+                    "currencyName": {
+                        "description": "The name of the currency",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "currencyCD": "AAA",
+                    "currencyName": "TEST23"
+                }
+            }
+        }
+    }
+}

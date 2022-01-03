@@ -1,0 +1,12 @@
+{
+    "data": {
+        "cityName": "PARIS",
+        "cityCD": "PAR",
+        "cityCountryCD": "FR"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Attempted duplicate record entry"
+    ]
+}

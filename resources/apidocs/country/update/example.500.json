@@ -1,0 +1,12 @@
+{
+    "data": {
+        "countryCD": "FR",
+        "countryName": "TEST",
+        "countryCurrencyCD": "ZZZ"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Referential integrity constraint violation on country currency code"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "data": {
+        "countryCD": "AA"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "Country deleted"
+    ]
+}

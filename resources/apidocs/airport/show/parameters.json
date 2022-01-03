@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "airportCD",
+            "description": "The airport standard IATA code.",
+            "schema": {
+                "type": "string"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

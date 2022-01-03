@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "currencyCD",
+            "description": "The standard ISO code of the currency to update.",
+            "schema": {
+                "type": "string"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+          "cnt_country_cd": "AU",
+          "cnt_country_nm": "AUSTRALIA",
+          "cnt_currency_cd": "AUD"
+        },
+        {
+          "cnt_country_cd": "CA",
+          "cnt_country_nm": "CANADA",
+          "cnt_currency_cd": "CAD"
+        },
+        {
+          "cnt_country_cd": "DE",
+          "cnt_country_nm": "GERMANY",
+          "cnt_currency_cd": "EUR"
+        },
+        {
+          "cnt_country_cd": "ES",
+          "cnt_country_nm": "SPAIN",
+          "cnt_currency_cd": "EUR"
+        },
+        {
+          "cnt_country_cd": "FR",
+          "cnt_country_nm": "FRANCE",
+          "cnt_currency_cd": "EUR"
+        },
+        {
+          "cnt_country_cd": "IT",
+          "cnt_country_nm": "ITALY",
+          "cnt_currency_cd": "EUR"
+        },
+        {
+          "cnt_country_cd": "SG",
+          "cnt_country_nm": "SINGAPORE",
+          "cnt_currency_cd": "SGD"
+        },
+        {
+          "cnt_country_cd": "TH",
+          "cnt_country_nm": "THAILAND",
+          "cnt_currency_cd": "THB"
+        },
+        {
+          "cnt_country_cd": "US",
+          "cnt_country_nm": "UNITED STATES",
+          "cnt_currency_cd": "USD"
+        }
+      ],
+    "error": false,
+    "pagination": {},
+    "messages": ["List of available countries"]
+}

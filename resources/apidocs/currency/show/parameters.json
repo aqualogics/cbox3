@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "currencyCD",
+            "description": "The currency standard ISO code",
+            "schema": {
+                "type": "string"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

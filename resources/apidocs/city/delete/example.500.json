@@ -1,0 +1,11 @@
+{
+    "data": {
+        "cityName": "NEW YORK",
+        "cityCountryCD": "US"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Database integrity constraint error"
+    ]
+}

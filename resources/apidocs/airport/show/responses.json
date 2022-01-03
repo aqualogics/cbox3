@@ -1,0 +1,47 @@
+{
+    "200": {
+        "description": "Show airport record",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "The airport record returned",
+                            "type": "object",
+                            "properties": {
+								"airportCD": {
+										"description": "The airport IATA code",
+										"type": "string"
+                                },
+                                "airportName": {
+                                    "description": "The name of the airport",
+                                    "type": "string"
+                                },
+                                "airportCityID": {
+                                    "description": "The ID of the city associated to the airport",
+                                    "type": "integer"
+                                }
+							}
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

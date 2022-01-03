@@ -1,0 +1,50 @@
+{
+    "200": {
+        "description": "Get a list of currencies",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of messages related to the request.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+						},
+						"pagination" : {
+							"description": "Pagination information.",
+                            "type": "object",
+                            "properties": {}
+						},
+                        "data": {
+                            "description": "The currency list",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+									"cur_currency_cd": {
+										"description": "The currency ISO code",
+										"type": "string"
+                                    },
+                                    "cur_currency_nm": {
+										"description": "The name of the currency",
+										"type": "string"
+									}
+                                }
+                            }
+                        }
+                    }
+				},
+				"example": {
+					"$ref": "example.200.json"
+				}
+            }
+        }
+    }
+}

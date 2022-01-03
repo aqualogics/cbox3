@@ -1,0 +1,12 @@
+{
+    "data": {
+        "airportCD": "CDG",
+        "airportName": "TEST",
+        "airportCityID": 99
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Referential integrity constraint violation on airportCityID"
+    ]
+}

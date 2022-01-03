@@ -1,0 +1,53 @@
+{
+    "200": {
+        "description": "Get a list of cities",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "An array of cities.",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+									"cty_city_id": {
+										"description": "The city identifier",
+										"type": "integer"
+                                    },
+                                    "cty_city_name": {
+										"description": "The name of the city",
+										"type": "string"
+									},
+									"cty_city_cd": {
+										"description": "An optional 3 alpha code for the city",
+										"type": "string"
+                                    },
+									"cty_country_cd": {
+										"description": "A country code where the city is located",
+										"type": "string"
+									}
+                                }
+                            }
+                        }
+                    }
+				},
+				"example": {
+					"$ref": "example.200.json"
+				}
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "data": {
+        "currencyCD": "EUR",
+        "currencyName": "TEST"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Attempted duplicate record entry"
+    ]
+}

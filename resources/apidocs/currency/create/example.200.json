@@ -1,0 +1,11 @@
+{
+    "data": {
+        "currencyCD": "AAA",
+        "currencyName": "TEST"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "Currency created"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "data": {
+        "countryCD": "FR",
+        "countryName": "TEST",
+        "countryCurrencyCD": "EUR"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Attempted duplicate record insert"
+    ]
+}

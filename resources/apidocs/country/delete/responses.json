@@ -1,0 +1,63 @@
+{
+    "200": {
+        "description": "Successfully delete the country record",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty string",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "500": {
+        "description": "Referential integrity constraint error.",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.500.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an internal server error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "Empty response for 500",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

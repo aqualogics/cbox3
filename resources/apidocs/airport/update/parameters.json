@@ -1,0 +1,13 @@
+{
+    "parameters": [
+        {
+            "name": "airportCD",
+            "description": "The standard IATA code of the airport to update.",
+            "schema": {
+                "type": "string"
+            },
+            "required": true,
+            "in": "path"
+        }
+    ]
+}

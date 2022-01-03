@@ -1,0 +1,38 @@
+{
+	"description": "Country not found",
+	"content": {
+		"application/json": {
+			"example": {
+				"data": {
+					"countryCD": "ZZ",
+					"countryName": "UNKNOWN COUNTRY"
+				},
+				"error": true,
+				"pagination": {},
+				"messages": [
+					"Country not found"
+				]
+			},
+			"schema": {
+				"type": "object",
+				"properties": {
+					"error": {
+						"description": "Flag to indicate an error.",
+						"type": "boolean"
+					},
+					"messages": {
+						"description": "An array of error messages.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"data": {
+						"description": "Empty response",
+						"type": "object"
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+    "data": {
+        "currencyCD": "AAA"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "Currency deleted"
+    ]
+}

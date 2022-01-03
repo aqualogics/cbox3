@@ -1,0 +1,47 @@
+{
+    "200": {
+        "description": "Show country record",
+        "content": {
+            "application/json": {
+                "example": {
+					"$ref": "example.200.json"
+				},
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of error messages.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "data": {
+                            "description": "The country record returned",
+                            "type": "object",
+                            "properties": {
+								"countryCD": {
+										"description": "The country code",
+										"type": "string"
+                                },
+                                "countryName": {
+                                    "description": "The name of the country",
+                                    "type": "string"
+                                },
+                                "countryCurrencyCD": {
+                                    "description": "The ISO code of the country's currency",
+                                    "type": "string"
+                                }
+							}
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

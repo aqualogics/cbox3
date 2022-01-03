@@ -1,0 +1,35 @@
+{
+    "description": "Required fields to create a Country",
+    "required": true,
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "required": [
+                    "countryCD",
+                    "countryName",
+                    "countryCurrencyCD"
+                ],
+                "properties": {
+                    "countryCD": {
+                        "description": "The ISO code of the country.",
+                        "type": "string"
+                    },
+                    "countryName": {
+                        "description": "The name of the country",
+                        "type": "string"
+                    },
+                    "countryCurrencyCD": {
+                        "description": "The ISO code of the country's currency",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "countryCD": "AA",
+                    "countryName": "TEST",
+                    "countryCurrencyCD": "EUR"
+                }
+            }
+        }
+    }
+}

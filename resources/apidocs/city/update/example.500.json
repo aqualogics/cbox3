@@ -1,0 +1,11 @@
+{
+    "data": {
+        "cityName": "PARIS",
+        "cityCountryCD": "FR"
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Unique index constraint violation"
+    ]
+}

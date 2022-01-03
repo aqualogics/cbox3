@@ -1,0 +1,12 @@
+{
+    "data": {
+        "CityName": "HOUSTON",
+        "CityCD": "",
+        "CityCountryCD": "US"
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "City created"
+    ]
+}

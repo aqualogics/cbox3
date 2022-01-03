@@ -1,0 +1,12 @@
+{
+    "data": {
+        "airportCD": "CDG",
+        "airportName": "TEST",
+        "airportCityID": 2
+    },
+    "error": true,
+    "pagination": {},
+    "messages": [
+        "Attempted duplicate record insert"
+    ]
+}

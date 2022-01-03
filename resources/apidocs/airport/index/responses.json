@@ -1,0 +1,55 @@
+{
+    "200": {
+        "description": "Get a list of airports",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "description": "Flag to indicate an error.",
+                            "type": "boolean"
+                        },
+                        "messages": {
+                            "description": "An array of messages related to the request.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+						},
+						"pagination" : {
+							"description": "Pagination information.",
+                            "type": "object",
+                            "properties": {}
+						},
+                        "data": {
+                            "description": "The airport list",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+									"gtw_airport_cd": {
+										"description": "The airport IATA code",
+										"type": "string"
+                                    },
+                                    "gtw_airport_nm": {
+										"description": "The name of the airport",
+										"type": "string"
+									},
+									"gtw_city_id": {
+										"description": "The airport city identifier",
+										"type": "integer"
+                                    }	
+                                }
+                            }
+
+                        }
+                    }
+				},
+				"example": {
+					"$ref": "example.200.json"
+				}
+            }
+        }
+    }
+}

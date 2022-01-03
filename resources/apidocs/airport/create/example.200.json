@@ -1,0 +1,12 @@
+{
+    "data": {
+        "airportCD": "AAA",
+        "airportName": "TEST",
+        "airportCityID": 2
+    },
+    "error": false,
+    "pagination": {},
+    "messages": [
+        "Airport created"
+    ]
+}
