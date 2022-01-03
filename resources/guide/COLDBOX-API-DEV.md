@@ -218,17 +218,28 @@ All the API handlers' integration tests are found in the `tests/specs/integratio
 
 To build the API documentation, we have associated pointers with our handlers'actions. They are pointing to files located in the `resources/apidocs` folder.
 
-The `cbSwagger` module was installed automatically when initially running the Coldbox API template. Swagger, now known as openAPI, is used to document our API. 
+Within that folder create the following sub-folders:
 
+> - _responses // contains all the 404 response files applicable to each handler
+> - airport // contains the example and response files for each action of the airportAPI.cfc handler
+> - city // contains the example and response files for each action of the cityAPI.cfc handler
+> - country // contains the example and response files for each action of the countryAPI.cfc handler
+> - currency // contains the example and response files for each action of the currencyAPI.cfc handler
+
+The `cbSwagger` module was installed as an additional module during our initial Coldbox project configuration. Swagger, now known as openAPI, is going to be used to document and generate our API. 
+
+> Run: `server list`
+> Take note of the port number on which `cbox3` is running
 > Update config/coldbox.cfc
 > Under module settings for cbswagger servers, replace the development server port number with your 
 > actual port number (line 214).
+> run `start` (if server is not already running) or type `coldbox reinit` otherwise
 
 Just hit the cbSwagger route at `http://127.0.0.1:<yourportnumber>/cbswagger` to trigger the API data default json format to be sent to output.
 
 Go to `https://swagger.io/tools/swagger-editor/` , download the Swagger editor zip file and extract it to a SwaggerEditor folder on your desktop. Now click on the index.html file within that folder to load the editor in your browser. Clear the content (PetStore example) loaded by default in the editor, select all of the json format output that you generated at `http://127.0.0.1:<yourportnumber>/cbswagger`. Then paste all that data in the editor. Say YES when you are prompted to convert the json data placed in the editor to `yaml` format. The complete API found under `resources/apidocs` is now documented. This documentation comes from the files we added under the `resources/apidocs` folder. It contains the response files we placed under the _responses, airport, city, country and currency subfolders.
 
-In the Swagger editor on line 17, replace the development server URL with the port number on which the API actually runs. Now select your server from the drop-down select box found on top of the Merapi REST template output. You can see that all the default API operations are now displayed. You may now try them out one by one to check the data returned by your API. Save a copy of the converted `openapi.yaml` file to `resources/apidocs` as your latest API documentation backup file.
+In the Swagger editor (on line 17), check that the development server URL matches the port number on which the API actually runs. Now select your server from the drop-down select box found on top of the Merapi REST template output. You can see that all the default API operations are now displayed. You may now try them out one by one to check the data returned by your API. Save a copy of the converted `openapi.yaml` file to `resources/apidocs` as your latest API documentation backup file.
 
 ### 3.5 Testing the API with POSTMAN
 
