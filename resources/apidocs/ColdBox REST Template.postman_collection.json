@@ -1,0 +1,4271 @@
+{
+	"info": {
+		"_postman_id": "c15082c2-43ed-4c12-bcb5-1d2d65e4d60b",
+		"name": "ColdBox REST Template",
+		"description": "This API produces amazing results and data.\n\nContact Support:\n Name: API Support\n Email: info@ortussolutions.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "airport",
+					"item": [
+						{
+							"name": "{airport CD}",
+							"item": [
+								{
+									"name": "Update an airport",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/airport/:airportCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport",
+												":airportCD"
+											],
+											"variable": [
+												{
+													"key": "airportCD",
+													"value": "",
+													"description": "(Required) airportCD"
+												}
+											]
+										},
+										"description": "Update an airport"
+									},
+									"response": [
+										{
+											"name": "Successful airport update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "",
+															"description": "(Required) airportCD"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"AAA\",\n  \"airportName\": \"TEST23\",\n  \"airportCityID\": 2\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Airport Updated\"\n ]\n}"
+										},
+										{
+											"name": "Record update validation failed.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "",
+															"description": "(Required) airportCD"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"AAA\",\n  \"airportName\": \"\",\n  \"airportCityID\": 3\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'airport name' value is required\"\n ]\n}"
+										},
+										{
+											"name": "Airport not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "",
+															"description": "(Required) airportCD"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"ZZZ\",\n  \"airportName\": \"UNKNOWN AIRPORT\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Airport not found\"\n ]\n}"
+										},
+										{
+											"name": "Referential integrity constraint error.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "",
+															"description": "(Required) airportCD"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"CDG\",\n  \"airportName\": \"TEST\",\n  \"airportCityID\": 99\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Referential integrity constraint violation on airportCityID\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "",
+															"description": "(Required) airportCD"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST23\",\n    \"airportCityID\": 2\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "",
+															"description": "(Required) airportCD"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Display (show) a single airport",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/airport/:airportCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport",
+												":airportCD"
+											],
+											"variable": [
+												{
+													"key": "airportCD",
+													"value": "Excepteur magna",
+													"description": "(Required) The airport standard IATA code."
+												}
+											]
+										},
+										"description": "Display (show) a single airport"
+									},
+									"response": [
+										{
+											"name": "Show airport record",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The airport standard IATA code."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"JFK\",\n  \"airportName\": \"NY KENNEDY AIRPORT\",\n  \"airportCityID\": 1\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+										},
+										{
+											"name": "Airport not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The airport standard IATA code."
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"ZZZ\",\n  \"airportName\": \"UNKNOWN AIRPORT\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Airport not found\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The airport standard IATA code."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The airport standard IATA code."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete a airport",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/airport/:airportCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport",
+												":airportCD"
+											],
+											"variable": [
+												{
+													"key": "airportCD",
+													"value": "Excepteur magna",
+													"description": "(Required) The key of the Airport record to delete."
+												}
+											]
+										},
+										"description": "Delete a airport"
+									},
+									"response": [
+										{
+											"name": "Successfully delete an airport record",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Airport record to delete."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"AAA\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Airport deleted\"\n ]\n}"
+										},
+										{
+											"name": "Airport not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Airport record to delete."
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"airportCD\": \"ZZZ\",\n  \"airportName\": \"UNKNOWN AIRPORT\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Airport not found\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Airport record to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/airport/:airportCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"airport",
+														":airportCD"
+													],
+													"variable": [
+														{
+															"key": "airportCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Airport record to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Returns a list of airports",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/airport",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"airport"
+									]
+								},
+								"description": "Returns a list of airports"
+							},
+							"response": [
+								{
+									"name": "Get a list of airports",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": [\n  {\n   \"gtw_airport_cd\": \"JFK\",\n   \"gtw_airport_nm\": \"NY KENNEDY AIRPORT\",\n   \"gtw_city_id\": 1\n  },\n  {\n   \"gtw_airport_cd\": \"CDG\",\n   \"gtw_airport_nm\": \"PARIS CHARLES DE GAULLE AIRPORT\",\n   \"gtw_city_id\": 2\n  },\n  {\n   \"gtw_airport_cd\": \"FCO\",\n   \"gtw_airport_nm\": \"ROME FIUMICINO AIRPORT\",\n   \"gtw_city_id\": 3\n  },\n  {\n   \"gtw_airport_cd\": \"FRA\",\n   \"gtw_airport_nm\": \"FRANKFURT AIRPORT\",\n   \"gtw_city_id\": 4\n  },\n  {\n   \"gtw_airport_cd\": \"BCN\",\n   \"gtw_airport_nm\": \"BARCELONA AIRPORT\",\n   \"gtw_city_id\": 5\n  },\n  {\n   \"gtw_airport_cd\": \"MEL\",\n   \"gtw_airport_nm\": \"MELBOURNE AIRPORT\",\n   \"gtw_city_id\": 6\n  },\n  {\n   \"gtw_airport_cd\": \"SYD\",\n   \"gtw_airport_nm\": \"SYDNEY AIRPORT\",\n   \"gtw_city_id\": 7\n  },\n  {\n   \"gtw_airport_cd\": \"BKK\",\n   \"gtw_airport_nm\": \"BANGKOK SUVARNABHUMI AIRPORT\",\n   \"gtw_city_id\": 8\n  },\n  {\n   \"gtw_airport_cd\": \"SIN\",\n   \"gtw_airport_nm\": \"SINGAPORE CHANGI AIRPORT\",\n   \"gtw_city_id\": 9\n  },\n  {\n   \"gtw_airport_cd\": \"YUL\",\n   \"gtw_airport_nm\": \"MONTREAL E.TRUDEAU AIRPORT\",\n   \"gtw_city_id\": 10\n  }\n ],\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"List of available airports\"\n ]\n}"
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Creates a new airport",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST\",\n    \"airportCityID\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/airport",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"airport"
+									]
+								},
+								"description": "Creates a new airport"
+							},
+							"response": [
+								{
+									"name": "Successful airport creation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST\",\n    \"airportCityID\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"airportCD\": \"AAA\",\n  \"airportName\": \"TEST\",\n  \"airportCityID\": 2\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Airport created\"\n ]\n}"
+								},
+								{
+									"name": "Record create validation failed.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST\",\n    \"airportCityID\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"airportCD\": \"\",\n  \"airportName\": \"\",\n  \"airportCityID\": 3\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'airport code' is required\",\n  \"The 'airport name' is required\"\n ]\n}"
+								},
+								{
+									"name": "Database insert error.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST\",\n    \"airportCityID\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"airportCD\": \"CDG\",\n  \"airportName\": \"TEST\",\n  \"airportCityID\": 2\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Attempted duplicate record insert\"\n ]\n}"
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST\",\n    \"airportCityID\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"airportCD\": \"AAA\",\n    \"airportName\": \"TEST\",\n    \"airportCityID\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/airport",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"airport"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "city",
+					"item": [
+						{
+							"name": "{city ID}",
+							"item": [
+								{
+									"name": "Update a City",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/city/:cityID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city",
+												":cityID"
+											],
+											"variable": [
+												{
+													"key": "cityID",
+													"value": "",
+													"description": "(Required) cityID"
+												}
+											]
+										},
+										"description": "Update a City"
+									},
+									"response": [
+										{
+											"name": "Successful City update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "",
+															"description": "(Required) cityID"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityName\": \"HOUSTON\",\n  \"cityCD\": \"HOU\",\n  \"cityCountryCD\": \"US\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"City Updated\"\n ]\n}"
+										},
+										{
+											"name": "Record update validation failed.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "",
+															"description": "(Required) cityID"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityName\": \"\",\n  \"cityCD\": \"\",\n  \"cityCountryCD\": \"US\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'City name' is required\"\n ]\n}"
+										},
+										{
+											"name": "City not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "",
+															"description": "(Required) cityID"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityID\": 99,\n  \"cityName\": \"UNKNOWN CITY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"City not found\"\n ]\n}"
+										},
+										{
+											"name": "Referential integrity constraint violation.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "",
+															"description": "(Required) cityID"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityName\": \"PARIS\",\n  \"cityCountryCD\": \"FR\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Unique index constraint violation\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "",
+															"description": "(Required) cityID"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"cityName\": \"HOUSTON\",\n    \"cityCD\": \"HOU\",\n    \"cityCountryCD\": \"US\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "",
+															"description": "(Required) cityID"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Display (show) a single City.",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/city/:cityID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city",
+												":cityID"
+											],
+											"variable": [
+												{
+													"key": "cityID",
+													"value": "-7641019",
+													"description": "(Required) The city identifier"
+												}
+											]
+										},
+										"description": "Display (show) a single City."
+									},
+									"response": [
+										{
+											"name": "Show city record",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The city identifier"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityID\": 1,\n  \"cityName\": \"NEW YORK\",\n  \"cityCD\": \"NYC\",\n  \"cityCountryCD\": \"US\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+										},
+										{
+											"name": "City not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The city identifier"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityID\": 99,\n  \"cityName\": \"UNKNOWN CITY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"City not found\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The city identifier"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The city identifier"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete a City",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/city/:cityID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city",
+												":cityID"
+											],
+											"variable": [
+												{
+													"key": "cityID",
+													"value": "-7641019",
+													"description": "(Required) The identifier of the City to delete."
+												}
+											]
+										},
+										"description": "Delete a City"
+									},
+									"response": [
+										{
+											"name": "Successfully delete a city record",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The identifier of the City to delete."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {},\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"City deleted\"\n ]\n}"
+										},
+										{
+											"name": "City not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The identifier of the City to delete."
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityID\": 99,\n  \"cityName\": \"UNKNOWN CITY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"City not found\"\n ]\n}"
+										},
+										{
+											"name": "Referential integrity constraint violation.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The identifier of the City to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"cityName\": \"NEW YORK\",\n  \"cityCountryCD\": \"US\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Database integrity constraint error\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The identifier of the City to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/city/:cityID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"city",
+														":cityID"
+													],
+													"variable": [
+														{
+															"key": "cityID",
+															"value": "-7641019",
+															"description": "(Required) The identifier of the City to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Returns a list of cities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/city",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"city"
+									]
+								},
+								"description": "Returns a list of cities"
+							},
+							"response": [
+								{
+									"name": "Get a list of cities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": [\n  {\n   \"cty_city_id\": 1,\n   \"cty_city_nm\": \"NEW YORK\",\n   \"cty_city_cd\": \"NYC\",\n   \"cty_country_cd\": \"US\"\n  },\n  {\n   \"cty_city_id\": 2,\n   \"cty_city_nm\": \"PARIS\",\n   \"cty_city_cd\": \"PAR\",\n   \"cty_country_cd\": \"FR\"\n  },\n  {\n   \"cty_city_id\": 3,\n   \"cty_city_nm\": \"ROME\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"IT\"\n  },\n  {\n   \"cty_city_id\": 4,\n   \"cty_city_nm\": \"FRANKFURT\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"DE\"\n  },\n  {\n   \"cty_city_id\": 5,\n   \"cty_city_nm\": \"BARCELONA\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"ES\"\n  },\n  {\n   \"cty_city_id\": 6,\n   \"cty_city_nm\": \"MELBOURNE\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"AU\"\n  },\n  {\n   \"cty_city_id\": 7,\n   \"cty_city_nm\": \"SYDNEY\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"AU\"\n  },\n  {\n   \"cty_city_id\": 8,\n   \"cty_city_nm\": \"BANGKOK\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"TH\"\n  },\n  {\n   \"cty_city_id\": 9,\n   \"cty_city_nm\": \"SINGAPORE\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"SG\"\n  },\n  {\n   \"cty_city_id\": 10,\n   \"cty_city_nm\": \"MONTREAL\",\n   \"cty_city_cd\": \"\",\n   \"cty_country_cd\": \"CA\"\n  }\n ],\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Creates a new City.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cityName\": \"VALENCIA\",\n    \"cityCD\": \"\",\n    \"cityCountryCD\": \"ES\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/city",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"city"
+									]
+								},
+								"description": "Creates a new City."
+							},
+							"response": [
+								{
+									"name": "Successful City creation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cityName\": \"VALENCIA\",\n    \"cityCD\": \"\",\n    \"cityCountryCD\": \"ES\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"CityName\": \"HOUSTON\",\n  \"CityCD\": \"\",\n  \"CityCountryCD\": \"US\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"City created\"\n ]\n}"
+								},
+								{
+									"name": "City record validation failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cityName\": \"VALENCIA\",\n    \"cityCD\": \"\",\n    \"cityCountryCD\": \"ES\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"cityName\": \"\",\n  \"cityCD\": \"\",\n  \"CityCountryCD\": \"US\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'City name' is required\"\n ]\n}"
+								},
+								{
+									"name": "Database insert error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cityName\": \"VALENCIA\",\n    \"cityCD\": \"\",\n    \"cityCountryCD\": \"ES\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"cityName\": \"PARIS\",\n  \"cityCD\": \"PAR\",\n  \"cityCountryCD\": \"FR\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Attempted duplicate record entry\"\n ]\n}"
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cityName\": \"VALENCIA\",\n    \"cityCD\": \"\",\n    \"cityCountryCD\": \"ES\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cityName\": \"VALENCIA\",\n    \"cityCD\": \"\",\n    \"cityCountryCD\": \"ES\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"city"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "country",
+					"item": [
+						{
+							"name": "{country CD}",
+							"item": [
+								{
+									"name": "Update a country",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/country/:countryCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country",
+												":countryCD"
+											],
+											"variable": [
+												{
+													"key": "countryCD",
+													"value": "",
+													"description": "(Required) countryCD"
+												}
+											]
+										},
+										"description": "Update a country"
+									},
+									"response": [
+										{
+											"name": "Successful country update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "",
+															"description": "(Required) countryCD"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"AA\",\n  \"countryName\": \"TEST23\",\n  \"countryCurrencyCD\": \"EUR\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Country Updated\"\n ]\n}"
+										},
+										{
+											"name": "Record update validation failed.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "",
+															"description": "(Required) countryCD"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"AA\",\n  \"countryName\": \"\",\n  \"countryCurrencyCD\": \"EUR\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'country name' value is required\"\n ]\n}"
+										},
+										{
+											"name": "Country not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "",
+															"description": "(Required) countryCD"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"ZZ\",\n  \"countryName\": \"UNKNOWN COUNTRY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Country not found\"\n ]\n}"
+										},
+										{
+											"name": "Referential integrity constraint error.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "",
+															"description": "(Required) countryCD"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"FR\",\n  \"countryName\": \"TEST\",\n  \"countryCurrencyCD\": \"ZZZ\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Referential integrity constraint violation on country currency code\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "",
+															"description": "(Required) countryCD"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST23\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "",
+															"description": "(Required) countryCD"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Display (show) a single country",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/country/:countryCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country",
+												":countryCD"
+											],
+											"variable": [
+												{
+													"key": "countryCD",
+													"value": "Excepteur magna",
+													"description": "(Required) The country standard ISO code."
+												}
+											]
+										},
+										"description": "Display (show) a single country"
+									},
+									"response": [
+										{
+											"name": "Show country record",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The country standard ISO code."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"US\",\n  \"countryName\": \"UNITED STATES\",\n  \"countryCurrencyCD\": \"USD\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+										},
+										{
+											"name": "Country not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The country standard ISO code."
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"ZZ\",\n  \"countryName\": \"UNKNOWN COUNTRY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Country not found\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The country standard ISO code."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The country standard ISO code."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete a country",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/country/:countryCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country",
+												":countryCD"
+											],
+											"variable": [
+												{
+													"key": "countryCD",
+													"value": "Excepteur magna",
+													"description": "(Required) The key of the Country record to delete."
+												}
+											]
+										},
+										"description": "Delete a country"
+									},
+									"response": [
+										{
+											"name": "Successfully delete the country record",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Country record to delete."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"AA\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Country deleted\"\n ]\n}"
+										},
+										{
+											"name": "Country not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Country record to delete."
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"ZZ\",\n  \"countryName\": \"UNKNOWN COUNTRY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Country not found\"\n ]\n}"
+										},
+										{
+											"name": "Referential integrity constraint error.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Country record to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"countryCD\": \"US\",\n  \"countryName\": \"UNITED STATES\",\n  \"countryCurrencyCD\": \"USD\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Database integrity constraint error\"\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Country record to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/country/:countryCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"country",
+														":countryCD"
+													],
+													"variable": [
+														{
+															"key": "countryCD",
+															"value": "Excepteur magna",
+															"description": "(Required) The key of the Country record to delete."
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Returns a list of countries",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/country",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"country"
+									]
+								},
+								"description": "Returns a list of countries"
+							},
+							"response": [
+								{
+									"name": "Get a list of available countries",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": [\n  {\n   \"cnt_country_cd\": \"AU\",\n   \"cnt_country_nm\": \"AUSTRALIA\",\n   \"cnt_currency_cd\": \"AUD\"\n  },\n  {\n   \"cnt_country_cd\": \"CA\",\n   \"cnt_country_nm\": \"CANADA\",\n   \"cnt_currency_cd\": \"CAD\"\n  },\n  {\n   \"cnt_country_cd\": \"DE\",\n   \"cnt_country_nm\": \"GERMANY\",\n   \"cnt_currency_cd\": \"EUR\"\n  },\n  {\n   \"cnt_country_cd\": \"ES\",\n   \"cnt_country_nm\": \"SPAIN\",\n   \"cnt_currency_cd\": \"EUR\"\n  },\n  {\n   \"cnt_country_cd\": \"FR\",\n   \"cnt_country_nm\": \"FRANCE\",\n   \"cnt_currency_cd\": \"EUR\"\n  },\n  {\n   \"cnt_country_cd\": \"IT\",\n   \"cnt_country_nm\": \"ITALY\",\n   \"cnt_currency_cd\": \"EUR\"\n  },\n  {\n   \"cnt_country_cd\": \"SG\",\n   \"cnt_country_nm\": \"SINGAPORE\",\n   \"cnt_currency_cd\": \"SGD\"\n  },\n  {\n   \"cnt_country_cd\": \"TH\",\n   \"cnt_country_nm\": \"THAILAND\",\n   \"cnt_currency_cd\": \"THB\"\n  },\n  {\n   \"cnt_country_cd\": \"US\",\n   \"cnt_country_nm\": \"UNITED STATES\",\n   \"cnt_currency_cd\": \"USD\"\n  }\n ],\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"List of available countries\"\n ]\n}"
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Creates a new country",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/country",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"country"
+									]
+								},
+								"description": "Creates a new country"
+							},
+							"response": [
+								{
+									"name": "Successful country creation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"countryCD\": \"AA\",\n  \"countryName\": \"TEST\",\n  \"countryCurrencyCD\": \"EUR\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Country created\"\n ]\n}"
+								},
+								{
+									"name": "Validation failed trying to create a Country.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"countryCD\": \"AA\",\n  \"countryName\": \"\",\n  \"countryCurrencyCD\": \"EUR\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'country name' value is required\"\n ]\n}"
+								},
+								{
+									"name": "Database insert error.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"countryCD\": \"FR\",\n  \"countryName\": \"TEST\",\n  \"countryCurrencyCD\": \"EUR\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Attempted duplicate record insert\"\n ]\n}"
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"countryCD\": \"AA\",\n    \"countryName\": \"TEST\",\n    \"countryCurrencyCD\": \"EUR\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/country",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"country"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "currency",
+					"item": [
+						{
+							"name": "{currency CD}",
+							"item": [
+								{
+									"name": "Update a Currency",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"currencyCD\": \"AAA\",\n    \"currencyName\": \"TEST23\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/currency/:currencyCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency",
+												":currencyCD"
+											],
+											"variable": [
+												{
+													"key": "currencyCD",
+													"value": "",
+													"description": "(Required) currencyCD"
+												}
+											]
+										},
+										"description": "Update a Currency"
+									},
+									"response": [
+										{
+											"name": "Successful currency update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"currencyCD\": \"AAA\",\n    \"currencyName\": \"TEST123\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "AAA",
+															"description": "(Required) currencyCD"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"AAA\",\n  \"currencyName\": \"TEST23\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Currency Updated\"\n ]\n}"
+										},
+										{
+											"name": "Validation failed trying to update a Currency.",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"currencyCD\": \"AAA\",\n    \"currencyName\": \"\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "AAA",
+															"description": "(Required) currencyCD"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"AAA\",\n  \"currencyName\": \"\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'currency name' value is required\"\n ]\n}"
+										},
+										{
+											"name": "Currency not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"currencyCD\": \"ZZZ\",\n    \"currencyName\": \"TEST\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "ZZZ",
+															"description": "(Required) currencyCD"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"ZZZ\",\n  \"currencyName\": \"UNKNOWN CURRENCY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Currency not found\"\n ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Display (show) a single currency",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/currency/:currencyCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency",
+												":currencyCD"
+											],
+											"variable": [
+												{
+													"key": "currencyCD",
+													"value": "Excepteur magna",
+													"description": "(Required) The currency standard ISO code"
+												}
+											]
+										},
+										"description": "Display (show) a single currency"
+									},
+									"response": [
+										{
+											"name": "Show currency record",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "USD",
+															"description": "(Required) The currency standard ISO code"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"USD\",\n  \"currencyName\": \"US DOLLAR\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+										},
+										{
+											"name": "Currency not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "ZZZ",
+															"description": "(Required) The currency standard ISO code"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"ZZZ\",\n  \"currencyName\": \"UNKNOWN CURRENCY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Currency not found\"\n ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete a Currency",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/currency/:currencyCD",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency",
+												":currencyCD"
+											],
+											"variable": [
+												{
+													"key": "currencyCD",
+													"value": "Excepteur magna",
+													"description": "(Required) The key of the Currency record to delete."
+												}
+											]
+										},
+										"description": "Delete a Currency"
+									},
+									"response": [
+										{
+											"name": "Successfully delete a currency record",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "AAA",
+															"description": "(Required) The key of the Currency record to delete."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"AAA\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Currency deleted\"\n ]\n}"
+										},
+										{
+											"name": "Currency not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/currency/:currencyCD",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"currency",
+														":currencyCD"
+													],
+													"variable": [
+														{
+															"key": "currencyCD",
+															"value": "ZZZ",
+															"description": "(Required) The key of the Currency record to delete."
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"data\": {\n  \"currencyCD\": \"ZZZ\",\n  \"currencyName\": \"UNKNOWN CURRENCY\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Currency not found\"\n ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Returns a list of currencies",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/currency",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"currency"
+									]
+								},
+								"description": "Returns a list of currencies"
+							},
+							"response": [
+								{
+									"name": "Get a list of currencies",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/currency",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": [\n  {\n   \"cur_currency_cd\": \"AUD\",\n   \"cur_currency_nm\": \"AUSTRALIAN DOLLAR\"\n  },\n  {\n   \"cur_currency_cd\": \"CAD\",\n   \"cur_currency_nm\": \"CANADIAN DOLLAR\"\n  },\n  {\n   \"cur_currency_cd\": \"EUR\",\n   \"cur_currency_nm\": \"EURO\"\n  },\n  {\n   \"cur_currency_cd\": \"SGD\",\n   \"cur_currency_nm\": \"SINGAPORE DOLLAR\"\n  },\n  {\n   \"cur_currency_cd\": \"THB\",\n   \"cur_currency_nm\": \"THAI BAHT\"\n  },\n  {\n   \"cur_currency_cd\": \"USD\",\n   \"cur_currency_nm\": \"US DOLLAR\"\n  }\n ],\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"List of currencies\"\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Creates a new Currency",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"currencyCD\": \"AAA\",\n    \"currencyName\": \"TEST\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/currency",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"currency"
+									]
+								},
+								"description": "Creates a new Currency"
+							},
+							"response": [
+								{
+									"name": "Successful Currency creation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"currencyCD\": \"AAA\",\n    \"currencyName\": \"TEST\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/currency",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"currencyCD\": \"AAA\",\n  \"currencyName\": \"TEST\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Currency created\"\n ]\n}"
+								},
+								{
+									"name": "Validation failed trying to create a Currency.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"currencyCD\": \"\",\n    \"currencyName\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/currency",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"currencyCD\": \"\",\n  \"currencyName\": \"\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"The 'Currency code' is required\",\n  \"The 'Currency name' is required\"\n ]\n}"
+								},
+								{
+									"name": "Duplicate currency record database insert.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"currencyCD\": \"EUR\",\n    \"currencyName\": \"TEST\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/currency",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"currency"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"currencyCD\": \"EUR\",\n  \"currencyName\": \"TEST\"\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Attempted duplicate record entry\"\n ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Say Hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/echo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"echo"
+							]
+						},
+						"description": "Say Hello"
+					},
+					"response": [
+						{
+							"name": "A welcome message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/echo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"echo"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": \"Welcome to my ColdBox RESTFul Service\",\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/echo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"echo"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Login a user into the application",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Login a user into the application"
+					},
+					"response": [
+						{
+							"name": "Validation exception",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"LNAME\": [\n   {\n    \"MESSAGE\": \"The 'LNAME' value is required\",\n    \"VALIDATIONDATA\": true,\n    \"ERRORMETADATA\": {},\n    \"REJECTEDVALUE\": \"\",\n    \"VALIDATIONTYPE\": \"Required\",\n    \"FIELD\": \"LNAME\"\n   }\n  ],\n  \"FNAME\": [\n   {\n    \"MESSAGE\": \"The 'FNAME' value is required\",\n    \"VALIDATIONDATA\": true,\n    \"ERRORMETADATA\": {},\n    \"REJECTEDVALUE\": \"\",\n    \"VALIDATIONTYPE\": \"Required\",\n    \"FIELD\": \"FNAME\"\n   }\n  ],\n  \"PASSWORD\": [\n   {\n    \"MESSAGE\": \"The 'PASSWORD' value is required\",\n    \"VALIDATIONDATA\": true,\n    \"ERRORMETADATA\": {},\n    \"REJECTEDVALUE\": \"\",\n    \"VALIDATIONTYPE\": \"Required\",\n    \"FIELD\": \"PASSWORD\"\n   }\n  ],\n  \"EMAIL\": [\n   {\n    \"MESSAGE\": \"The 'EMAIL' value is required\",\n    \"VALIDATIONDATA\": true,\n    \"ERRORMETADATA\": {},\n    \"REJECTEDVALUE\": \"\",\n    \"VALIDATIONTYPE\": \"Required\",\n    \"FIELD\": \"EMAIL\"\n   }\n  ]\n },\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Validation exceptions occurred, please see the data\"\n ]\n}"
+						},
+						{
+							"name": "Application registration successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE1ODkzMDUwMzEsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6NjUxMDAvIiwic3ViIjoxLCJleHAiOjE1ODkzMDg2MzEsImp0aSI6IkQxNkI4Qzg5NTc2OUU5MDcyNUNBQTU3M0I3M0FCNTc2In0.VDsqEDCXtHnrMXZYXqE2To2lQpmQAmHP8asXjhw_c2KsI_1mx2gZETuIrVNXckUl9zdevx2O818PlCkp6znmGw\",\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Bearer token created and it expires in 60 minutes\"\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Logout a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						},
+						"description": "Logout a user"
+					},
+					"response": [
+						{
+							"name": "Invalid token or expired token or no token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {},\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"General application error: Token not found in authorization header or the custom header or the request collection\"\n ]\n}"
+						},
+						{
+							"name": "Authenticate in the application",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {},\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"Successfully logged out\"\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Register a new user in the system",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fname\": \"luis\",\n    \"lname\": \"majano\",\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "Register a new user in the system"
+					},
+					"response": [
+						{
+							"name": "Invalid or Missing Authentication Credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fname\": \"luis\",\n    \"lname\": \"majano\",\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {},\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Invalid or Missing Authentication Credentials\"\n ]\n}"
+						},
+						{
+							"name": "Authenticate in the application",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fname\": \"luis\",\n    \"lname\": \"majano\",\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE1ODkzMTI3NzcsInNjb3BlcyI6W10sImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6NjUxMDAvIiwic3ViIjoiRTBDMTlDNjgtRDA5MC00QzY4LUE5NUY4NUIzRDFGRDZCODIiLCJleHAiOjE1ODkzMTYzNzcsImp0aSI6IjQ3Q0QxMDlDNTA4NTdDQTlGRUVBMDY0NzNEQzMxRkY3In0.I3F-MFsy7BbgLYwt6L9FR1HMNu6ZsUpkFQRgbpXdaPBbIbHRznWEw3MTsTKf654g0eO_yE5JVhGYYRzn_VyR6g\",\n  \"user\": {\n   \"lname\": \"majano\",\n   \"permissions\": [],\n   \"fname\": \"luis\",\n   \"id\": \"E0C19C68-D090-4C68-A95F85B3D1FD6B82\",\n   \"email\": \"test@test.com\"\n  }\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": [\n  \"User registered correctly and Bearer token created and it expires in 60 minutes\"\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fname\": \"luis\",\n    \"lname\": \"majano\",\n    \"email\": \"user@email.org\",\n    \"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "A secured route that shows you your information",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/whoami",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"whoami"
+							]
+						},
+						"description": "A secured route that shows you your information"
+					},
+					"response": [
+						{
+							"name": "Invalid or Missing Authentication Credentials",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/whoami",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"whoami"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {},\n \"error\": true,\n \"pagination\": {},\n \"messages\": [\n  \"Invalid or Missing Authentication Credentials\"\n ]\n}"
+						},
+						{
+							"name": "Returns the logged in user information",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/whoami",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"whoami"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"lname\": \"admin\",\n  \"permissions\": [],\n  \"fname\": \"admin\",\n  \"id\": 1,\n  \"email\": \"admin@coldbox.org\"\n },\n \"error\": false,\n \"pagination\": {},\n \"messages\": []\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/whoami",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"whoami"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://mysite.com/v1",
+			"type": "string"
+		}
+	]
+}
